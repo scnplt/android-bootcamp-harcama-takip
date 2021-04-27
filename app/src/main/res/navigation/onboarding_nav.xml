@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/onboarding_nav"
+    app:startDestination="@id/onboardingFirstFragment">
+
+    <fragment
+        android:id="@+id/onboardingFirstFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingFirstFragment"
+        android:label="OnboardingFirstFragment" >
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_onboardingSecondFragment"
+            app:destination="@id/onboardingSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSecondFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingSecondFragment"
+        android:label="OnboardingSecondFragment" >
+        <action
+            android:id="@+id/action_onboardingSecondFragment_to_onboardingThirdFragment"
+            app:destination="@id/onboardingThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingThirdFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingThirdFragment"
+        android:label="OnboardingThirdFragment" />
+</navigation>
