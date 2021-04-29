@@ -37,4 +37,8 @@
     <string name="woman">Kadın</string>
     <string name="unanswered">Belirtmek istemiyorum</string>
     <string name="save">Kaydet</string>
+
+    <!-- Expense Detail -->
+    <string name="expense_detail">Harcama Detayı</string>
+    <string name="delete">Sil</string>
 </resources>
