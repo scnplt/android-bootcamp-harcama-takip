@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Title -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_large"
+        android:layout_marginTop="@dimen/size_large"
+        android:layout_marginEnd="@dimen/size_large"
+        android:text="@string/add_expense"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Description -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_large"
+        android:background="@drawable/bg_input_text"
+        android:hint="@string/desc"
+        android:inputType="text"
+        android:padding="@dimen/size"
+        android:textSize="@dimen/text_common"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <!-- Expense -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/expense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size"
+        android:background="@drawable/bg_input_text"
+        android:hint="@string/expense"
+        android:inputType="number"
+        android:padding="@dimen/size"
+        android:textSize="@dimen/text_common"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/desc" />
+
+    <!-- Currency -->
+    <HorizontalScrollView
+        android:id="@+id/currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/expense">
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/testChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tl"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="@dimen/text_small"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@drawable/color_home_chip"
+                app:chipEndPadding="@dimen/home_padding_chip"
+                app:chipStartPadding="@dimen/home_padding_chip"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="@dimen/stroke_width"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sterlin"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="@dimen/text_small"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@drawable/color_home_chip"
+                app:chipEndPadding="@dimen/home_padding_chip"
+                app:chipStartPadding="@dimen/home_padding_chip"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="@dimen/stroke_width"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/euro"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="@dimen/text_small"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@drawable/color_home_chip"
+                app:chipEndPadding="@dimen/home_padding_chip"
+                app:chipStartPadding="@dimen/home_padding_chip"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="@dimen/stroke_width"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dollar"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="@dimen/text_small"
+                app:checkedIconEnabled="false"
+                app:chipBackgroundColor="@drawable/color_home_chip"
+                app:chipEndPadding="@dimen/home_padding_chip"
+                app:chipStartPadding="@dimen/home_padding_chip"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="@dimen/stroke_width"
+                app:closeIconVisible="false" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <!-- Bill type -->
+    <RadioGroup
+        android:id="@+id/bill_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size"
+        android:checkedButton="@id/shopping"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/currency">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shopping" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rent" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bill" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other" />
+
+    </RadioGroup>
+
+    <!-- Add expense -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/size"
+        android:layout_marginBottom="@dimen/size"
+        android:text="@string/add"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

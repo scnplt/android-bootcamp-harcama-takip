@@ -3,11 +3,11 @@ package dev.sertan.android.harcamatakip.ui.onboarding
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import dev.sertan.android.harcamatakip.databinding.FragmentOnboarding3Binding
+import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingCurrencyBinding
 import dev.sertan.android.harcamatakip.ui.BaseFragment
 import dev.sertan.android.harcamatakip.ui.main.MainActivity
 
-class OnboardingThirdFragment : BaseFragment<FragmentOnboarding3Binding>() {
+class OnboardingCurrencyFragment : BaseFragment<FragmentOnboardingCurrencyBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -19,5 +19,5 @@ class OnboardingThirdFragment : BaseFragment<FragmentOnboarding3Binding>() {
         }
     }
 
-    override fun getViewDataBinding(): FragmentOnboarding3Binding = FragmentOnboarding3Binding.inflate(layoutInflater)
+    override fun getViewDataBinding(): FragmentOnboardingCurrencyBinding = FragmentOnboardingCurrencyBinding.inflate(layoutInflater)
 }

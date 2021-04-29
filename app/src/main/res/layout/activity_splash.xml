@@ -7,24 +7,26 @@
     android:background="@color/secondaryColor"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="@dimen/size_dp_s"
+    android:padding="@dimen/size"
     tools:context=".ui.splash.SplashActivity">
 
+    <!-- Animation -->
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="@dimen/size_dp_xxl"
-        android:layout_height="@dimen/size_dp_xxl"
+        android:layout_width="@dimen/animation_large"
+        android:layout_height="@dimen/animation_large"
         app:lottie_autoPlay="true"
         app:lottie_fileName="bill.json"
         app:lottie_loop="false"
         tools:src="@tools:sample/avatars" />
 
+    <!-- Title -->
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_dp_s"
+        android:layout_marginTop="@dimen/size"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="@dimen/size_sp_l"
+        android:textSize="@dimen/title"
         android:textStyle="bold" />
 
 </LinearLayout>

@@ -4,8 +4,7 @@
 
     <corners android:radius="@dimen/corner_radius" />
 
-    <gradient
-        android:angle="0"
-        android:endColor="@color/secondaryColor"
-        android:startColor="@color/secondaryDarkColor" />
+    <stroke
+        android:width="@dimen/stroke_width"
+        android:color="@color/primaryDarkColor" />
 </shape>
