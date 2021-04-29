@@ -167,7 +167,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/size"
-            android:layout_marginBottom="@dimen/size"
+            android:layout_marginBottom="@dimen/size_large"
             android:text="@string/add"
             android:textAlignment="center"
             android:textColor="@color/white"
