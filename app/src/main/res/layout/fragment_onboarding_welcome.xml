@@ -4,48 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/size_dp_s">
+    android:padding="@dimen/size">
 
+    <!-- Animation -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimation"
-        android:layout_width="@dimen/size_dp_xxl"
-        android:layout_height="@dimen/size_dp_xxl"
-        android:layout_marginBottom="@dimen/size_dp_s"
+        android:layout_width="@dimen/animation_large"
+        android:layout_height="@dimen/animation_large"
+        android:layout_marginBottom="@dimen/size"
         app:layout_constraintBottom_toTopOf="@+id/textViewTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="money.json"
+        app:lottie_fileName="billing-management.json"
         app:lottie_loop="true"
         tools:src="@tools:sample/avatars" />
 
+    <!-- Title -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/size_dp_s"
-        android:text="@string/different_currency"
+        android:layout_marginBottom="@dimen/size"
+        android:text="@string/onboarding_welcome"
         android:textAlignment="center"
-        android:textSize="@dimen/size_sp_s"
+        android:textSize="@dimen/text_common"
         app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottieAnimation" />
 
+    <!-- Description -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/different_currency_desc"
+        android:text="@string/onboarding_description"
         android:textAlignment="center"
-        android:textSize="@dimen/size_sp_xs"
+        android:textSize="@dimen/text_small"
         app:layout_constraintBottom_toTopOf="@+id/btnSkip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
+    <!-- Skip -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSkip"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -55,8 +59,8 @@
         android:layout_alignParentBottom="true"
         android:text="@string/skip"
         android:textColor="@color/secondaryDarkColor"
-        android:textSize="@dimen/size_sp_xs"
-        app:cornerRadius="@dimen/size_dp_s"
+        android:textSize="@dimen/text_common"
+        app:cornerRadius="@dimen/corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:strokeColor="@color/secondaryColor" />

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="size_sp_l">45sp</dimen>
-    <dimen name="size_sp_s">25sp</dimen>
-    <dimen name="size_sp_xs">20sp</dimen>
-    <dimen name="size_sp_xxs">16sp</dimen>
+    <!-- Common -->
+    <dimen name="size">16dp</dimen>
+    <dimen name="size_large">32dp</dimen>
+    <dimen name="size_small">8dp</dimen>
 
-    <dimen name="size_dp_xxl">250dp</dimen>
-    <dimen name="size_dp_l">32dp</dimen>
-    <dimen name="size_dp_m">24dp</dimen>
-    <dimen name="size_dp_s">16dp</dimen>
-    <dimen name="size_dp_xs">8dp</dimen>
+    <dimen name="title">45sp</dimen>
+    <dimen name="text_common">20sp</dimen>
+    <dimen name="text_small">17sp</dimen>
+    <dimen name="text_large">32sp</dimen>
 
-    <dimen name="chip_stroke_width">0.5dp</dimen>
+    <!-- Home -->
+    <dimen name="home_text_card_info">@dimen/text_common</dimen>
+    <dimen name="home_text_chip">@dimen/text_small</dimen>
+    <dimen name="home_padding_chip">@dimen/size</dimen>
+
+    <!-- Other -->
+    <dimen name="animation_large">250dp</dimen>
+    <dimen name="stroke_width">0.75dp</dimen>
+    <dimen name="corner_radius">@dimen/size_small</dimen>
+    <dimen name="icon">75dp</dimen>
 </resources>

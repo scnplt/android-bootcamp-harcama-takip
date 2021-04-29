@@ -1,7 +1,9 @@
 <resources>
+    <!-- Common -->
     <string name="app_name">Harcama Takip</string>
 
-    <string name="onboarding_appname">Karşınızda Harcama Takip Uygulaması</string>
+    <!-- Onboarding -->
+    <string name="onboarding_welcome">Karşınızda Harcama Takip Uygulaması</string>
     <string name="onboarding_description">Artık karışıklığa son!</string>
     <string name="skip">Geç</string>
     <string name="easy_category">Kolayca Kategorilendir</string>
@@ -9,10 +11,22 @@
     <string name="different_currency">Farklı Para Birimleriyle Takip Et</string>
     <string name="different_currency_desc">Harcamalarınızı TL, Dolar, Euro, Sterlin para birimleriyle sürekli güncellenen kur ile takip edin!</string>
 
+    <!-- Main -->
+    <string name="bill">Fatura</string>
+    <string name="rent">Kira</string>
+    <string name="other">Diğer</string>
+    <string name="shopping">Alışveriş</string>
+
+    <!-- Home -->
     <string name="add">Ekle</string>
     <string name="hello">Merhaba</string>
     <string name="tl">TL</string>
     <string name="sterlin">STERLIN</string>
     <string name="euro">EURO</string>
     <string name="dollar">DOLAR</string>
+
+    <!-- Add expense -->
+    <string name="add_expense">Harcama Ekle</string>
+    <string name="desc">Açıklama</string>
+    <string name="expense">Harcama</string>
 </resources>

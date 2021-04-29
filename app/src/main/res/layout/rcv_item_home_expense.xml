@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_home_expense"
+    android:paddingHorizontal="@dimen/size"
+    android:paddingVertical="@dimen/size_large">
+
+    <!-- Bill icon-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon_expense"
+        android:layout_width="@dimen/icon"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <!-- Bill description -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_common"
+        app:layout_constraintBottom_toBottomOf="@id/icon_expense"
+        app:layout_constraintEnd_toStartOf="@+id/cost"
+        app:layout_constraintStart_toEndOf="@+id/icon_expense"
+        app:layout_constraintTop_toTopOf="@id/icon_expense"
+        tools:text="Elektrik" />
+
+    <!-- Expense -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_common"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        tools:text="60 TL" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

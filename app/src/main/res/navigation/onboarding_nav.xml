@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/onboardingFirstFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingFirstFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingWelcomeFragment"
         android:label="OnboardingFirstFragment" >
         <action
             android:id="@+id/action_onboardingFirstFragment_to_onboardingSecondFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingSecondFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingSecondFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingCategoryFragment"
         android:label="OnboardingSecondFragment" >
         <action
             android:id="@+id/action_onboardingSecondFragment_to_onboardingThirdFragment"
@@ -21,6 +21,6 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingThirdFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingThirdFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.onboarding.OnboardingCurrencyFragment"
         android:label="OnboardingThirdFragment" />
 </navigation>

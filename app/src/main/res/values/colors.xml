@@ -9,7 +9,7 @@
     <color name="secondaryDarkColor">#FC4D1B</color>
 
     <color name="primaryTextColor">#eeeeee</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">@color/white</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
