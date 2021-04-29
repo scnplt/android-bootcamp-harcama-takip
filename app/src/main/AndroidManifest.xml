@@ -14,12 +14,14 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/Theme.HarcamaTakip.Fullscreen">
+        </activity>
+        <activity android:name=".ui.onboarding.OnboardingActivity" />
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.onboarding.OnboardingActivity" />
     </application>
 
 </manifest>
