@@ -15,6 +15,9 @@
     <dimen name="home_text_chip">@dimen/text_small</dimen>
     <dimen name="home_padding_chip">@dimen/size</dimen>
 
+    <!-- Expense Detail -->
+    <dimen name="bill_icon">100dp</dimen>
+
     <!-- Other -->
     <dimen name="animation_large">250dp</dimen>
     <dimen name="stroke_width">0.75dp</dimen>

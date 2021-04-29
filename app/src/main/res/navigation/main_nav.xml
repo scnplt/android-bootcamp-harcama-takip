@@ -6,5 +6,27 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="dev.sertan.android.harcamatakip.ui.main.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileSettingsFragment"
+            app:destination="@id/profileSettingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_expenseDetailFragment"
+            app:destination="@id/expenseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.ProfileSettingsFragment"
+        android:label="ProfileSettingsFragment" />
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.AddExpenseFragment"
+        android:label="AddExpenseFragment" />
+    <fragment
+        android:id="@+id/expenseDetailFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.ExpenseDetailFragment"
+        android:label="ExpenseDetailFragment" />
 </navigation>
