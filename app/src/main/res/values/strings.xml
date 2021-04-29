@@ -29,4 +29,12 @@
     <string name="add_expense">Harcama Ekle</string>
     <string name="desc">Açıklama</string>
     <string name="expense">Harcama</string>
+
+    <!-- Profile Settings -->
+    <string name="profile_settings">Profil Ayarları</string>
+    <string name="name">İsim</string>
+    <string name="man">Erkek</string>
+    <string name="woman">Kadın</string>
+    <string name="unanswered">Belirtmek istemiyorum</string>
+    <string name="save">Kaydet</string>
 </resources>
