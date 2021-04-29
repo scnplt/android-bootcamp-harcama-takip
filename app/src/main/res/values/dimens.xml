@@ -6,5 +6,10 @@
     <dimen name="size_sp_xxs">16sp</dimen>
 
     <dimen name="size_dp_xxl">250dp</dimen>
+    <dimen name="size_dp_l">32dp</dimen>
+    <dimen name="size_dp_m">24dp</dimen>
     <dimen name="size_dp_s">16dp</dimen>
+    <dimen name="size_dp_xs">8dp</dimen>
+
+    <dimen name="chip_stroke_width">0.5dp</dimen>
 </resources>

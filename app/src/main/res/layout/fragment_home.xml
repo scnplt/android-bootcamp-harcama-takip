@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/size_dp_s">
+
+                <!-- Info Card -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_home_card_info"
+                    android:paddingHorizontal="@dimen/size_dp_s"
+                    android:paddingVertical="@dimen/size_dp_l">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textViewHello"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hello"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_sp_s"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+                        app:layout_constraintEnd_toStartOf="@+id/spending"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_sp_s"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textViewHello"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHello"
+                        tools:text="Sertan Bey" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/spending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_sp_s"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textViewHello"
+                        app:layout_constraintTop_toTopOf="@+id/textViewHello"
+                        tools:text="Harcamanız" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/spend_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_sp_s"
+                        app:layout_constraintStart_toStartOf="@+id/spending"
+                        app:layout_constraintTop_toTopOf="@+id/textViewName"
+                        tools:text="9080 TL" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Currency -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/size_dp_xs">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/testChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tl"
+                            android:textColor="@color/primaryLightColor"
+                            android:textSize="@dimen/size_sp_xs"
+                            app:checkedIconEnabled="false"
+                            app:chipBackgroundColor="@drawable/bg_home_chip"
+                            app:chipEndPadding="@dimen/size_dp_s"
+                            app:chipStartPadding="@dimen/size_dp_s"
+                            app:chipStrokeColor="@android:color/darker_gray"
+                            app:chipStrokeWidth="@dimen/chip_stroke_width"
+                            app:closeIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sterlin"
+                            android:textColor="@color/primaryLightColor"
+                            android:textSize="@dimen/size_sp_xs"
+                            app:checkedIconEnabled="false"
+                            app:chipBackgroundColor="@drawable/bg_home_chip"
+                            app:chipEndPadding="@dimen/size_dp_s"
+                            app:chipStartPadding="@dimen/size_dp_s"
+                            app:chipStrokeColor="@android:color/darker_gray"
+                            app:chipStrokeWidth="@dimen/chip_stroke_width"
+                            app:closeIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/euro"
+                            android:textColor="@color/primaryLightColor"
+                            android:textSize="@dimen/size_sp_xs"
+                            app:checkedIconEnabled="false"
+                            app:chipBackgroundColor="@drawable/bg_home_chip"
+                            app:chipEndPadding="@dimen/size_dp_s"
+                            app:chipStartPadding="@dimen/size_dp_s"
+                            app:chipStrokeColor="@android:color/darker_gray"
+                            app:chipStrokeWidth="@dimen/chip_stroke_width"
+                            app:closeIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dollar"
+                            android:textColor="@color/primaryLightColor"
+                            android:textSize="@dimen/size_sp_xs"
+                            app:checkedIconEnabled="false"
+                            app:chipBackgroundColor="@drawable/bg_home_chip"
+                            app:chipEndPadding="@dimen/size_dp_s"
+                            app:chipStartPadding="@dimen/size_dp_s"
+                            app:chipStrokeColor="@android:color/darker_gray"
+                            app:chipStrokeWidth="@dimen/chip_stroke_width"
+                            app:closeIconVisible="false" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </HorizontalScrollView>
+
+                <!-- Expenses -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Add expense -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/size_dp_s"
+            android:layout_marginBottom="@dimen/size_dp_s"
+            android:text="@string/add"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_sp_xs"
+            app:icon="@drawable/ic_add"
+            app:iconTint="@color/white" />
+
+    </RelativeLayout>
+
+</layout>
