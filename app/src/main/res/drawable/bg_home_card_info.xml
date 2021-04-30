@@ -6,6 +6,6 @@
 
     <gradient
         android:angle="0"
-        android:endColor="@color/secondaryColor"
-        android:startColor="@color/secondaryDarkColor" />
+        android:endColor="@color/secondary_color"
+        android:startColor="@color/secondary_dark_color" />
 </shape>

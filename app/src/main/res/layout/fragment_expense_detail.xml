@@ -11,20 +11,20 @@
         android:layout_height="@dimen/icon"
         android:backgroundTint="@android:color/transparent"
         android:src="@drawable/ic_back"
-        android:tint="@color/secondaryColor"
+        android:tint="@color/secondary_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bill_icon"
-        android:layout_width="@dimen/bill_icon"
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/size_large"
         app:layout_constraintBottom_toTopOf="@id/desc"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:src="@tools:sample/avatars" />
 
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@id/expense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bill_icon"
+        app:layout_constraintTop_toBottomOf="@id/icon"
         tools:text="Elektrik" />
 
     <!-- Expense -->
@@ -63,8 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete"
-        android:textSize="@dimen/text_large"
-        app:backgroundTint="@android:color/holo_red_dark"
+        style="@style/Widget.App.OutlinedButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

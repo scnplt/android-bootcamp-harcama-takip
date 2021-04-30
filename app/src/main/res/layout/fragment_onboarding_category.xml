@@ -31,38 +31,32 @@
         android:text="@string/easy_category"
         android:textAlignment="center"
         android:textSize="@dimen/text_common"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
+        app:layout_constraintBottom_toTopOf="@+id/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottieAnimation" />
 
     <!-- Description -->
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewDescription"
+        android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/category_desc"
         android:textAlignment="center"
         android:textSize="@dimen/text_small"
-        app:layout_constraintBottom_toTopOf="@+id/btnSkip"
+        app:layout_constraintBottom_toTopOf="@+id/btn_skip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <!-- Skip -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSkip"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
+        style="@style/Widget.App.OutlinedButton"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:text="@string/skip"
-        android:textColor="@color/secondaryDarkColor"
-        android:textSize="@dimen/text_common"
-        app:cornerRadius="@dimen/corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:strokeColor="@color/secondaryColor" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

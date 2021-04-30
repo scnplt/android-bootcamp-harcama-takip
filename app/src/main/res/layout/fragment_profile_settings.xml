@@ -25,11 +25,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_large"
-        android:background="@drawable/bg_input_text"
         android:hint="@string/name"
         android:inputType="text"
-        android:padding="@dimen/size"
-        android:textSize="@dimen/text_common"
         app:layout_constraintEnd_toEndOf="@id/title"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/title" />
@@ -66,17 +63,13 @@
     </RadioGroup>
 
     <!-- Add expense -->
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.App.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/size"
         android:layout_marginBottom="@dimen/size_large"
         android:text="@string/save"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
