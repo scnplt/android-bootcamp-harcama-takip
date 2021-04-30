@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingCurrencyBinding
-import dev.sertan.android.harcamatakip.ui.BaseFragment
+import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 import dev.sertan.android.harcamatakip.ui.main.MainActivity
 
 class OnboardingCurrencyFragment : BaseFragment<FragmentOnboardingCurrencyBinding>() {

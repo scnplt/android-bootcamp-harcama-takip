@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingWelcomeBinding
-import dev.sertan.android.harcamatakip.ui.BaseFragment
+import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 
 class OnboardingWelcomeFragment : BaseFragment<FragmentOnboardingWelcomeBinding>() {
 
