@@ -91,61 +91,24 @@
                         app:singleSelection="true">
 
                         <com.google.android.material.chip.Chip
-                            android:id="@+id/testChip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/tl"
-                            android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/text_small"
-                            app:checkedIconEnabled="false"
-                            app:chipBackgroundColor="@drawable/color_home_chip"
-                            app:chipEndPadding="@dimen/home_padding_chip"
-                            app:chipStartPadding="@dimen/home_padding_chip"
-                            app:chipStrokeColor="@android:color/darker_gray"
-                            app:chipStrokeWidth="@dimen/stroke_width"
-                            app:closeIconVisible="false" />
+                            android:text="@string/tl" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/sterlin"
-                            android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/text_small"
-                            app:checkedIconEnabled="false"
-                            app:chipBackgroundColor="@drawable/color_home_chip"
-                            app:chipEndPadding="@dimen/home_padding_chip"
-                            app:chipStartPadding="@dimen/home_padding_chip"
-                            app:chipStrokeColor="@android:color/darker_gray"
-                            app:chipStrokeWidth="@dimen/stroke_width"
-                            app:closeIconVisible="false" />
+                            android:text="@string/sterlin" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/euro"
-                            android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/text_small"
-                            app:checkedIconEnabled="false"
-                            app:chipBackgroundColor="@drawable/color_home_chip"
-                            app:chipEndPadding="@dimen/home_padding_chip"
-                            app:chipStartPadding="@dimen/home_padding_chip"
-                            app:chipStrokeColor="@android:color/darker_gray"
-                            app:chipStrokeWidth="@dimen/stroke_width"
-                            app:closeIconVisible="false" />
+                            android:text="@string/euro" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dollar"
-                            android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/text_small"
-                            app:checkedIconEnabled="false"
-                            app:chipBackgroundColor="@drawable/color_home_chip"
-                            app:chipEndPadding="@dimen/home_padding_chip"
-                            app:chipStartPadding="@dimen/home_padding_chip"
-                            app:chipStrokeColor="@android:color/darker_gray"
-                            app:chipStrokeWidth="@dimen/stroke_width"
-                            app:closeIconVisible="false" />
+                            android:text="@string/dollar" />
 
                     </com.google.android.material.chip.ChipGroup>
 
@@ -153,6 +116,7 @@
 
                 <!-- Expenses -->
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/expenses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -161,19 +125,15 @@
         </androidx.core.widget.NestedScrollView>
 
         <!-- Add expense -->
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.App.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/size"
             android:layout_marginBottom="@dimen/size_large"
-            android:text="@string/add"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_small"
-            app:icon="@drawable/ic_add"
-            app:iconTint="@color/white" />
+            android:text="@string/add" />
 
     </RelativeLayout>
 

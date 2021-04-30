@@ -12,15 +12,13 @@
 
     <!-- Home -->
     <dimen name="home_text_card_info">@dimen/text_common</dimen>
-    <dimen name="home_text_chip">@dimen/text_small</dimen>
-    <dimen name="home_padding_chip">@dimen/size</dimen>
-
-    <!-- Expense Detail -->
-    <dimen name="bill_icon">100dp</dimen>
 
     <!-- Other -->
     <dimen name="animation_large">250dp</dimen>
     <dimen name="stroke_width">0.75dp</dimen>
     <dimen name="corner_radius">@dimen/size_small</dimen>
-    <dimen name="icon">75dp</dimen>
+    <dimen name="icon">100dp</dimen>
+    <dimen name="fab_text">@dimen/text_common</dimen>
+    <dimen name="fab_inset_vertical">0dp</dimen>
+    <dimen name="chip_padding">@dimen/size</dimen>
 </resources>

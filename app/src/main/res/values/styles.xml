@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Fullscreen Style -->
+    <!-- Fullscreen -->
     <style name="Theme.HarcamaTakip.Fullscreen" parent="@style/Theme.HarcamaTakip">
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- Button -->
+    <style name="Widget.App.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/secondary_color</item>
+        <item name="strokeColor">@color/secondary_color</item>
+        <item name="android:textSize">@dimen/fab_text</item>
+        <item name="android:insetTop">@dimen/fab_inset_vertical</item>
+        <item name="android:insetBottom">@dimen/fab_inset_vertical</item>
+    </style>
+
+    <!-- Chip -->
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="android:textColor">@color/primary_light_color</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="checkedIconEnabled">false</item>
+        <item name="chipEndPadding">@dimen/chip_padding</item>
+        <item name="chipStartPadding">@dimen/chip_padding</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="chipStrokeColor">@color/primary_color</item>
+        <item name="chipStrokeWidth">@dimen/stroke_width</item>
+        <item name="closeIconEnabled">false</item>
+        <item name="closeIconVisible">false</item>
+    </style>
+
+    <!-- EditText -->
+    <style name="Widget.App.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_input_text</item>
+        <item name="android:padding">@dimen/size</item>
+        <item name="android:textSize">@dimen/text_common</item>
     </style>
 </resources>

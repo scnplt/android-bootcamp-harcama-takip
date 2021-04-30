@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondaryColor"
+    android:background="@color/secondary_color"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/size"
