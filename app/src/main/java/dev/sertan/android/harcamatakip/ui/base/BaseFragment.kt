@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.ui
+package dev.sertan.android.harcamatakip.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
