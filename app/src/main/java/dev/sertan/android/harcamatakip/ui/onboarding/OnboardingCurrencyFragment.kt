@@ -8,7 +8,6 @@ import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 import dev.sertan.android.harcamatakip.ui.main.MainActivity
 
 class OnboardingCurrencyFragment : BaseFragment<FragmentOnboardingCurrencyBinding>() {
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -19,5 +18,6 @@ class OnboardingCurrencyFragment : BaseFragment<FragmentOnboardingCurrencyBindin
         }
     }
 
-    override fun getViewDataBinding(): FragmentOnboardingCurrencyBinding = FragmentOnboardingCurrencyBinding.inflate(layoutInflater)
+    override fun getViewDataBinding(): FragmentOnboardingCurrencyBinding =
+        FragmentOnboardingCurrencyBinding.inflate(layoutInflater)
 }
