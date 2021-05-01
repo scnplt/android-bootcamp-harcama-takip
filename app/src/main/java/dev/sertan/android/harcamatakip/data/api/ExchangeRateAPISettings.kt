@@ -1,10 +1,10 @@
 package dev.sertan.android.harcamatakip.data.api
 
-import dev.sertan.android.harcamatakip.data.model.ExchangeRate
+import dev.sertan.android.harcamatakip.data.model.Currency
 
 object ExchangeRateAPISettings {
     const val BASE_URL = "https://api.exchangerate.host/"
     const val ENDPOINT = "latest"
-    const val CURRENCIES = "${ExchangeRate.EURO}, ${ExchangeRate.POUND}, ${ExchangeRate.DOLLAR}"
-    const val BASE_CURRENCY = ExchangeRate.LIRA
+    val CURRENCIES = "${Currency.EURO.code},${Currency.POUND.code},${Currency.DOLLAR.code}"
+    val BASE_CURRENCY = Currency.LIRA.code
 }

@@ -6,7 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.sertan.android.harcamatakip.data.ExchangeRateSharedPref
+import dev.sertan.android.harcamatakip.data.sharedpreferences.ExchangeRateSharedPref
 
 @Module
 @InstallIn(SingletonComponent::class)
