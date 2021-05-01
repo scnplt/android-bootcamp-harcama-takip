@@ -34,4 +34,13 @@
         <item name="android:padding">@dimen/size</item>
         <item name="android:textSize">@dimen/text_common</item>
     </style>
+
+    <!-- Item -->
+    <style name="Widget.App.OutlinedItem" parent="Theme.HarcamaTakip">
+        <item name="android:background">@drawable/bg_recycler_view_item_outlined</item>
+        <item name="android:paddingTop">@dimen/size</item>
+        <item name="android:paddingBottom">@dimen/size</item>
+        <item name="android:paddingStart">@dimen/size_small</item>
+        <item name="android:paddingEnd">@dimen/size_small</item>
+    </style>
 </resources>

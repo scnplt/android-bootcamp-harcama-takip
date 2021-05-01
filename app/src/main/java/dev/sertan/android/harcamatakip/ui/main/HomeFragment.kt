@@ -7,5 +7,5 @@ import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun getViewDataBinding(): FragmentHomeBinding =
-        DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, null, false)
+        DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container!!, false)
 }

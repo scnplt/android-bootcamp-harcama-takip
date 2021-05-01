@@ -11,7 +11,7 @@ class OnboardingCategoryFragment : BaseFragment<FragmentOnboardingCategoryBindin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding!!.btnSkip.setOnClickListener {
+        binding!!.skip.setOnClickListener {
             val action = OnboardingCategoryFragmentDirections.actionOnboardingSecondFragmentToOnboardingThirdFragment()
             findNavController().navigate(action)
         }
