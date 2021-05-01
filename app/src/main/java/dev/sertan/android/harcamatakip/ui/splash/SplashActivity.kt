@@ -13,7 +13,7 @@ import dev.sertan.android.harcamatakip.ui.onboarding.OnboardingActivity
 class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
 
     companion object {
-        const val SKIP_DURATION = 3000L
+        private const val SKIP_DURATION = 3000L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

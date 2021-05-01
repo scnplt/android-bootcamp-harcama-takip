@@ -7,15 +7,16 @@ import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingCategoryBin
 import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 
 class OnboardingCategoryFragment : BaseFragment<FragmentOnboardingCategoryBinding>() {
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding!!.skip.setOnClickListener {
-            val action = OnboardingCategoryFragmentDirections.actionOnboardingSecondFragmentToOnboardingThirdFragment()
+            val action = OnboardingCategoryFragmentDirections
+                .actionOnboardingSecondFragmentToOnboardingThirdFragment()
             findNavController().navigate(action)
         }
     }
 
-    override fun getViewDataBinding(): FragmentOnboardingCategoryBinding = FragmentOnboardingCategoryBinding.inflate(layoutInflater)
+    override fun getViewDataBinding(): FragmentOnboardingCategoryBinding =
+        FragmentOnboardingCategoryBinding.inflate(layoutInflater)
 }
