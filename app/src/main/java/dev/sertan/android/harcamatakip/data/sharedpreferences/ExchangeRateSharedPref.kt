@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.data
+package dev.sertan.android.harcamatakip.data.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences

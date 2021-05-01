@@ -1,6 +1,6 @@
 package dev.sertan.android.harcamatakip.data.repository
 
-import dev.sertan.android.harcamatakip.data.ExchangeRateSharedPref
+import dev.sertan.android.harcamatakip.data.sharedpreferences.ExchangeRateSharedPref
 import dev.sertan.android.harcamatakip.data.api.ExchangeRateAPI
 import javax.inject.Inject
 
