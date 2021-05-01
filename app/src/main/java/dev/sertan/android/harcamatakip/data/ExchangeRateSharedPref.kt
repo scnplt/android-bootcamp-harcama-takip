@@ -37,6 +37,6 @@ class ExchangeRateSharedPref(context: Context) {
     private fun getExchangeRates() {
         val default = ExchangeRate().toJSON()
         val json = sharedPref.getString(key, default)
-        _exchangeRates.value = ExchangeRate.fromJSON(json!!)
+        _exchangeRates.postValue(ExchangeRate.fromJSON(json!!))
     }
 }
