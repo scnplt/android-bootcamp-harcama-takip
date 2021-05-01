@@ -2,15 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.App.OutlinedItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_home_expense"
-    android:paddingHorizontal="@dimen/size"
-    android:paddingVertical="@dimen/size_large">
+    android:layout_height="wrap_content">
 
     <!-- Bill icon-->
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icon_expense"
+        android:id="@+id/icon"
         android:layout_width="@dimen/icon"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,29 +19,29 @@
 
     <!-- Bill description -->
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
+        android:id="@+id/desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/size"
         android:singleLine="true"
         android:textAlignment="center"
         android:textSize="@dimen/text_common"
-        app:layout_constraintBottom_toBottomOf="@id/icon_expense"
-        app:layout_constraintEnd_toStartOf="@+id/cost"
-        app:layout_constraintStart_toEndOf="@+id/icon_expense"
-        app:layout_constraintTop_toTopOf="@id/icon_expense"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toStartOf="@+id/amount"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
         tools:text="Elektrik" />
 
     <!-- Expense -->
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cost"
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_common"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="@id/desc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintTop_toTopOf="@id/desc"
         tools:text="60 TL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

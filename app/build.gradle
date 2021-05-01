@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "dev.sertan.android.harcamatakip.HiltTestRunner"
     }
 
     buildTypes {
@@ -52,7 +52,6 @@ dependencies {
 
     // Room
     implementation 'androidx.room:room-runtime:2.3.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt 'androidx.room:room-compiler:2.3.0'
 
     // Navigation
@@ -71,14 +70,15 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Lottie
-    implementation 'com.airbnb.android:lottie:3.4.0'
+    implementation 'com.airbnb.android:lottie:3.7.0'
 
     // Test
-    kaptTest 'com.google.dagger:hilt-android-compiler:2.35'
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.35'
+    kaptTest 'com.google.dagger:hilt-android-compiler:2.35.1'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.35.1'
     testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.google.truth:truth:1.1.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.navigation:navigation-testing:2.3.5'
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.35'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.35.1'
 }

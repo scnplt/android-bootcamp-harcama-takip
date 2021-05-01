@@ -11,7 +11,7 @@ class OnboardingWelcomeFragment : BaseFragment<FragmentOnboardingWelcomeBinding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding!!.btnSkip.setOnClickListener {
+        binding!!.skip.setOnClickListener {
             val action = OnboardingWelcomeFragmentDirections.actionOnboardingFirstFragmentToOnboardingSecondFragment()
             findNavController().navigate(action)
         }

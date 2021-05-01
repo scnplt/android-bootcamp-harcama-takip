@@ -12,7 +12,7 @@ class OnboardingCurrencyFragment : BaseFragment<FragmentOnboardingCurrencyBindin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding!!.btnSkip.setOnClickListener {
+        binding!!.skip.setOnClickListener {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()

@@ -30,13 +30,13 @@
                     android:paddingVertical="@dimen/size_large">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/textViewHello"
+                        android:id="@+id/hello"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/hello"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
-                        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+                        app:layout_constraintBottom_toTopOf="@+id/name"
                         app:layout_constraintEnd_toStartOf="@+id/spending"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
@@ -44,14 +44,14 @@
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/textViewName"
+                        android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textViewHello"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewHello"
+                        app:layout_constraintStart_toStartOf="@+id/hello"
+                        app:layout_constraintTop_toBottomOf="@+id/hello"
                         tools:text="Sertan Bey" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -62,18 +62,18 @@
                         android:textSize="@dimen/home_text_card_info"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textViewHello"
-                        app:layout_constraintTop_toTopOf="@+id/textViewHello"
+                        app:layout_constraintStart_toEndOf="@+id/hello"
+                        app:layout_constraintTop_toTopOf="@+id/hello"
                         tools:text="Harcamanız" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/spend_count"
+                        android:id="@+id/total_expense"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
                         app:layout_constraintStart_toStartOf="@+id/spending"
-                        app:layout_constraintTop_toTopOf="@+id/textViewName"
+                        app:layout_constraintTop_toTopOf="@+id/name"
                         tools:text="9080 TL" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
