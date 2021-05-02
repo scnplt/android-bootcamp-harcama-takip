@@ -2,30 +2,42 @@
     <!-- Common -->
     <string name="app_name">Harcama Takip</string>
 
-    <!-- Onboarding -->
-    <string name="onboarding_welcome">Karşınızda Harcama Takip Uygulaması</string>
-    <string name="onboarding_description">Artık karışıklığa son!</string>
+    <string name="lira_with_symbol">₺%1$.2f</string>
+    <string name="pound_with_symbol">£%1$.2f</string>
+    <string name="dollar_with_symbol">$%1$.2f</string>
+    <string name="euro_with_symbol">€%1$.2f</string>
+
     <string name="skip">Geç</string>
+
+    <!-- Onboarding -->
+    <string name="welcome">Karşınızda Harcama Takip Uygulaması</string>
+    <string name="welcome_desc">Artık karışıklığa son!</string>
+
     <string name="easy_category">Kolayca Kategorilendir</string>
-    <string name="category_desc">Harcamalarınızı kategorilendirerek daha kolay takip edin!</string>
+    <string name="easy_category_desc">Harcamalarınızı kategorilendirerek daha kolay takip edin!</string>
+
     <string name="different_currency">Farklı Para Birimleriyle Takip Et</string>
     <string name="different_currency_desc">Harcamalarınızı TL, Dolar, Euro, Sterlin para birimleriyle sürekli güncellenen kur ile takip edin!</string>
-
-    <!-- Main -->
-    <string name="bill">Fatura</string>
-    <string name="rent">Kira</string>
-    <string name="other">Diğer</string>
-    <string name="shopping">Alışveriş</string>
 
     <!-- Home -->
     <string name="add">Ekle</string>
     <string name="hello">Merhaba</string>
-    <string name="tl">TL</string>
+
+    <string name="personal_title_man">%1$s Bey</string>
+    <string name="personal_title_woman">%1$s Hanım</string>
+    <string name="personal_title_unknown">%1$s</string>
+
+    <string name="lira">LIRA</string>
     <string name="pound">POUND</string>
     <string name="euro">EURO</string>
     <string name="dollar">DOLAR</string>
 
     <!-- Add expense -->
+    <string name="bill">Fatura</string>
+    <string name="rent">Kira</string>
+    <string name="other">Diğer</string>
+    <string name="shop">Mağaza</string>
+
     <string name="add_expense">Harcama Ekle</string>
     <string name="desc">Açıklama</string>
     <string name="expense">Harcama</string>
@@ -33,10 +45,11 @@
     <!-- Profile Settings -->
     <string name="profile_settings">Profil Ayarları</string>
     <string name="name">İsim</string>
+    <string name="save">Kaydet</string>
+
     <string name="man">Erkek</string>
     <string name="woman">Kadın</string>
-    <string name="unanswered">Belirtmek istemiyorum</string>
-    <string name="save">Kaydet</string>
+    <string name="unknown">Belirtmek istemiyorum</string>
 
     <!-- Expense Detail -->
     <string name="expense_detail">Harcama Detayı</string>

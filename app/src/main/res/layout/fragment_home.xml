@@ -36,9 +36,7 @@
                         android:text="@string/hello"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
-                        app:layout_constraintBottom_toTopOf="@+id/name"
-                        app:layout_constraintEnd_toStartOf="@+id/spending"
-                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintBottom_toTopOf="@id/name"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_chainStyle="packed" />
@@ -50,8 +48,8 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/hello"
-                        app:layout_constraintTop_toBottomOf="@+id/hello"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/hello"
                         tools:text="Sertan Bey" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -60,20 +58,23 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
+                        app:layout_constraintBottom_toTopOf="@id/total_expense"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/hello"
-                        app:layout_constraintTop_toTopOf="@+id/hello"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
                         tools:text="Harcamanız" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/total_expense"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
-                        app:layout_constraintStart_toStartOf="@+id/spending"
-                        app:layout_constraintTop_toTopOf="@+id/name"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/spending"
+                        app:layout_constraintTop_toBottomOf="@id/spending"
                         tools:text="9080 TL" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -81,7 +82,9 @@
                 <!-- Currency -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/size"
+                    android:scrollbars="none">
 
                     <com.google.android.material.chip.ChipGroup
                         android:layout_width="wrap_content"
@@ -93,7 +96,7 @@
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/tl" />
+                            android:text="@string/lira" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
@@ -126,7 +129,7 @@
 
         <!-- Add expense -->
         <com.google.android.material.button.MaterialButton
-            style="@style/Widget.App.OutlinedButton"
+            style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

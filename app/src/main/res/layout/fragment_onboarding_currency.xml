@@ -30,7 +30,7 @@
         android:layout_marginBottom="@dimen/size"
         android:text="@string/different_currency"
         android:textAlignment="center"
-        android:textSize="@dimen/text_common"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
     <!-- Skip -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/skip"
-        style="@style/Widget.App.OutlinedButton"
+        style="@style/Widget.App.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/skip"

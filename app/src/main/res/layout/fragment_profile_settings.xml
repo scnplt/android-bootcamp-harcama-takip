@@ -36,7 +36,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size"
-        android:checkedButton="@id/unanswered"
         app:layout_constraintEnd_toEndOf="@id/title"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/name">
@@ -57,13 +56,13 @@
             android:id="@+id/unanswered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/unanswered" />
+            android:text="@string/unknown" />
 
     </RadioGroup>
 
     <!-- Add expense -->
     <com.google.android.material.button.MaterialButton
-        style="@style/Widget.App.OutlinedButton"
+        style="@style/Widget.App.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/size"

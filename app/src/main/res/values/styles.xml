@@ -6,22 +6,22 @@
     </style>
 
     <!-- Button -->
-    <style name="Widget.App.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">@color/secondary_color</item>
-        <item name="strokeColor">@color/secondary_color</item>
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/secondary_color</item>
+        <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textSize">@dimen/fab_text</item>
         <item name="android:insetTop">@dimen/fab_inset_vertical</item>
         <item name="android:insetBottom">@dimen/fab_inset_vertical</item>
     </style>
 
     <!-- Chip -->
-    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Entry">
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:textColor">@color/primary_light_color</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="checkedIconEnabled">false</item>
         <item name="chipEndPadding">@dimen/chip_padding</item>
         <item name="chipStartPadding">@dimen/chip_padding</item>
-        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="chipBackgroundColor">@drawable/color_chip</item>
         <item name="chipStrokeColor">@color/primary_color</item>
         <item name="chipStrokeWidth">@dimen/stroke_width</item>
         <item name="closeIconEnabled">false</item>
@@ -32,7 +32,9 @@
     <style name="Widget.App.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/bg_input_text</item>
         <item name="android:padding">@dimen/size</item>
-        <item name="android:textSize">@dimen/text_common</item>
+        <item name="android:textColor">@color/secondary_color</item>
+        <item name="android:textColorHint">@color/secondary_light_color</item>
+        <item name="android:textSize">@dimen/text</item>
     </style>
 
     <!-- Item -->
@@ -40,7 +42,7 @@
         <item name="android:background">@drawable/bg_recycler_view_item_outlined</item>
         <item name="android:paddingTop">@dimen/size</item>
         <item name="android:paddingBottom">@dimen/size</item>
-        <item name="android:paddingStart">@dimen/size_small</item>
-        <item name="android:paddingEnd">@dimen/size_small</item>
+        <item name="android:paddingStart">@dimen/size</item>
+        <item name="android:paddingEnd">@dimen/size</item>
     </style>
 </resources>
