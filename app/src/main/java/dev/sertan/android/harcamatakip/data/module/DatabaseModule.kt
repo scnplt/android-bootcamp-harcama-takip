@@ -15,8 +15,8 @@ object DatabaseModule {
     @Provides
     fun provideExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase =
         Room.databaseBuilder(
-                context,
-                ExpenseDatabase::class.java,
-                ExpenseDatabase::class.java.name
-            ).build()
+            context,
+            ExpenseDatabase::class.java,
+            ExpenseDatabase::class.java.name
+        ).build()
 }
