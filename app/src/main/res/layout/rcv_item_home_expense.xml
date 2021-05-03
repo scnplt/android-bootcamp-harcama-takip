@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.App.OutlinedItem"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/size">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Bill icon-->
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icon"
-        android:layout_width="@dimen/icon"
-        android:layout_height="@dimen/icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+    <data>
 
-    <!-- Bill description -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/desc"
-        android:layout_width="0dp"
+        <variable
+            name="expense"
+            type="dev.sertan.android.harcamatakip.service.model.Expense" />
+
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Widget.App.OutlinedItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:textSize="@dimen/text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/amount"
-        app:layout_constraintStart_toEndOf="@id/icon"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Elektrik" />
+        android:layout_margin="@dimen/size">
 
-    <!-- Expense -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="60 TL" />
+        <!-- Bill icon-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/icon"
+            android:layout_height="@dimen/icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:show_expense_icon="@{expense}"
+            tools:src="@tools:sample/avatars" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Bill description -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size"
+            android:singleLine="true"
+            android:text="@{expense.desc}"
+            android:textAlignment="center"
+            android:textSize="@dimen/text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/amount"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Elektrik" />
+
+        <!-- Expense -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text"
+            android:textStyle="bold"
+            app:calculate_amount="@{expense.amount}"
+            app:calculate_currency="@{viewModel.user.mainCurrency}"
+            app:calculate_exchange_rate="@{viewModel.exchangeRate}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="60 TL" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

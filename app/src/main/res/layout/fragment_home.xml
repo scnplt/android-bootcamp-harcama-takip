@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="dev.sertan.android.harcamatakip.data.model.Currency" />
+        <import type="dev.sertan.android.harcamatakip.service.model.Currency" />
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.ui.main.home.HomeViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
     </data>
 
     <RelativeLayout
@@ -79,9 +79,9 @@
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
+                        app:calculate_amount="@{viewModel.totalAmount}"
                         app:calculate_currency="@{viewModel.user.mainCurrency}"
                         app:calculate_exchange_rate="@{viewModel.exchangeRate}"
-                        app:calculate_expenses="@{viewModel.expenses}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@id/spending"

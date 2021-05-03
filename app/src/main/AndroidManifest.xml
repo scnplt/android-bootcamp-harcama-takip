@@ -16,15 +16,15 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name=".view.ui.activity.OnboardingActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".view.ui.activity.MainActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".view.ui.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.HarcamaTakip.Fullscreen">
             <intent-filter>
