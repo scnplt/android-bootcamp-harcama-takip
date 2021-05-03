@@ -22,6 +22,7 @@
     <!-- Home -->
     <string name="add">Ekle</string>
     <string name="hello">Merhaba</string>
+    <string name="your_spending">Harcamanız</string>
 
     <string name="personal_title_man">%1$s Bey</string>
     <string name="personal_title_woman">%1$s Hanım</string>

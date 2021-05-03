@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.main.HomeFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.home.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_profileSettingsFragment"
@@ -20,14 +20,14 @@
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.main.ProfileSettingsFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.profile.ProfileSettingsFragment"
         android:label="ProfileSettingsFragment" />
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.main.AddExpenseFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.add.AddExpenseFragment"
         android:label="AddExpenseFragment" />
     <fragment
         android:id="@+id/expenseDetailFragment"
-        android:name="dev.sertan.android.harcamatakip.ui.main.ExpenseDetailFragment"
+        android:name="dev.sertan.android.harcamatakip.ui.main.detail.ExpenseDetailFragment"
         android:label="ExpenseDetailFragment" />
 </navigation>

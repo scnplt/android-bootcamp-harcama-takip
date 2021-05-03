@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data>
+
+        <import type="dev.sertan.android.harcamatakip.data.model.Currency" />
+
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.ui.main.home.HomeViewModel" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -50,19 +57,20 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/hello"
+                        app:personal_titles="@{viewModel.user}"
                         tools:text="Sertan Bey" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/spending"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/your_spending"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
                         app:layout_constraintBottom_toTopOf="@id/total_expense"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        tools:text="Harcamanız" />
+                        app:layout_constraintVertical_chainStyle="packed" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/total_expense"
@@ -71,6 +79,9 @@
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
+                        app:calculate_currency="@{viewModel.user.mainCurrency}"
+                        app:calculate_exchange_rate="@{viewModel.exchangeRate}"
+                        app:calculate_expenses="@{viewModel.expenses}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@id/spending"
@@ -96,21 +107,29 @@
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="@{viewModel.user.mainCurrency == Currency.LIRA}"
+                            android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
                             android:text="@string/lira" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="@{viewModel.user.mainCurrency == Currency.POUND}"
+                            android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
                             android:text="@string/pound" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="@{viewModel.user.mainCurrency == Currency.EURO}"
+                            android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
                             android:text="@string/euro" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="@{viewModel.user.mainCurrency == Currency.DOLLAR}"
+                            android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
                             android:text="@string/dollar" />
 
                     </com.google.android.material.chip.ChipGroup>
@@ -136,6 +155,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/size"
             android:layout_marginBottom="@dimen/size_large"
+            android:onClick="@{viewModel::goToAddExpenseScreen}"
             android:text="@string/add" />
 
     </RelativeLayout>
