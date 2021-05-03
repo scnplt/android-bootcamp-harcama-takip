@@ -7,7 +7,7 @@ import androidx.room.TypeConverter
 @Entity(tableName = "expense_table")
 data class Expense(
     val desc: String = "",
-    val amount: Float = 1f,
+    val amount: Double = 1.0,
     val type: Type = Type.OTHER,
     @PrimaryKey(autoGenerate = true)
     val uid: Int = 0

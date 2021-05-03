@@ -2,21 +2,23 @@ package dev.sertan.android.harcamatakip.ui.onboarding
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingWelcomeBinding
 import dev.sertan.android.harcamatakip.ui.base.BaseFragment
 
 class OnboardingWelcomeFragment : BaseFragment<FragmentOnboardingWelcomeBinding>() {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding!!.skip.setOnClickListener {
-            val action = OnboardingWelcomeFragmentDirections
-                .actionOnboardingFirstFragmentToOnboardingSecondFragment()
-            findNavController().navigate(action)
-        }
+    private val skipBtnOnClickListener = { _: View ->
+        val action = OnboardingWelcomeFragmentDirections
+            .actionOnboardingFirstFragmentToOnboardingSecondFragment()
+        findNavController().navigate(action)
     }
 
-    override fun getViewDataBinding(): FragmentOnboardingWelcomeBinding =
+    override fun getViewBinding(container: ViewGroup?): FragmentOnboardingWelcomeBinding =
         FragmentOnboardingWelcomeBinding.inflate(layoutInflater)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.skip.setOnClickListener(skipBtnOnClickListener)
+    }
 }

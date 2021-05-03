@@ -8,11 +8,12 @@ import com.google.gson.Gson
 
 abstract class BaseSharedPreferences<T>(context: Context, private val dataClass: Class<T>) {
     private val key = "${context.packageName}.${this::class.simpleName}"
+    private val defaultData: T = dataClass.newInstance()
 
     private val sharedPref: SharedPreferences = context
         .getSharedPreferences(key, Context.MODE_PRIVATE)
 
-    private val _data = MutableLiveData<T>()
+    private val _data = MutableLiveData(defaultData)
     val data: LiveData<T>
         get() = _data
 
@@ -28,8 +29,8 @@ abstract class BaseSharedPreferences<T>(context: Context, private val dataClass:
             .commit()
 
     private fun getData() {
-        val default = toJSON(dataClass.newInstance())
-        val json = sharedPref.getString(key, default)
+        val defaultJSON = toJSON(defaultData)
+        val json = sharedPref.getString(key, defaultJSON)
         _data.postValue(fromJSON(json!!))
     }
 

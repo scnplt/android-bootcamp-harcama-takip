@@ -8,24 +8,22 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
-    protected var binding: VB? = null
-    protected var container: ViewGroup? = null
+    private var _binding: VB? = null
+    val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        this.container = container
-        binding = getViewDataBinding()
-        return binding!!.root
+        _binding = getViewBinding(container)
+        return binding.root
     }
 
     override fun onDestroyView() {
-        binding = null
-        container = null
+        _binding = null
         super.onDestroyView()
     }
 
-    abstract fun getViewDataBinding(): VB
+    abstract fun getViewBinding(container: ViewGroup? = null): VB
 }
