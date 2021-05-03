@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/size"
-    tools:context=".ui.splash.SplashActivity">
+    tools:context=".view.ui.activity.SplashActivity">
 
     <!-- Animation -->
     <com.airbnb.lottie.LottieAnimationView
