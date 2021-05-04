@@ -2,6 +2,7 @@ package dev.sertan.android.harcamatakip.service.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "expense_table")
 data class Expense(
@@ -10,4 +11,4 @@ data class Expense(
     var category: SpendCategory = SpendCategory.OTHER,
     @PrimaryKey(autoGenerate = true)
     val uid: Int = 0
-)
+) : Serializable

@@ -42,6 +42,11 @@ class HomeViewModel @Inject constructor(
         view.findNavController().navigate(action)
     }
 
+    fun goToExpenseDetailScreen(view: View, expense: Expense) {
+        val action = HomeFragmentDirections.actionHomeFragmentToExpenseDetailFragment(expense)
+        view.findNavController().navigate(action)
+    }
+
     override fun onCleared() {
         super.onCleared()
         expenseRepo.close()
