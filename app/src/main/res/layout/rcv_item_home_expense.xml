@@ -18,7 +18,7 @@
         style="@style/Widget.App.OutlinedItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/size">
+        android:onClick="@{(v) -> viewModel.goToExpenseDetailScreen(v, expense)}">
 
         <!-- Bill icon-->
         <androidx.appcompat.widget.AppCompatImageView
@@ -37,8 +37,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/size"
-            android:singleLine="true"
-            android:text="@{expense.desc}"
+            android:maxLines="2"
+            android:text="@{expense.desc.length() == 0 ? @string/default_desc : expense.desc}"
             android:textAlignment="center"
             android:textSize="@dimen/text"
             app:layout_constraintBottom_toBottomOf="parent"

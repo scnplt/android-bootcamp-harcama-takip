@@ -55,4 +55,7 @@
     <!-- Expense Detail -->
     <string name="expense_detail">Harcama Detayı</string>
     <string name="delete">Sil</string>
+
+    <!-- Expense Item -->
+    <string name="default_desc">Açıklama yok.</string>
 </resources>
