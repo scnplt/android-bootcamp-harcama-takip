@@ -16,7 +16,7 @@ class ExchangeRateWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result =
-        if (repo.getExchangeRates()) Result.success()
+        if (repo.updateExchangeRates()) Result.success()
         else Result.failure()
 
     companion object {
@@ -25,7 +25,7 @@ class ExchangeRateWorker @AssistedInject constructor(
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build()
 
-            val worker = PeriodicWorkRequestBuilder<ExchangeRateWorker>(6, TimeUnit.HOURS)
+            val worker = PeriodicWorkRequestBuilder<ExchangeRateWorker>(20, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build()
 

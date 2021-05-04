@@ -10,38 +10,28 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.service.model.Currency
 import dev.sertan.android.harcamatakip.service.model.Expense
 import dev.sertan.android.harcamatakip.service.model.SpendCategory
-import dev.sertan.android.harcamatakip.service.repository.ExchangeRateRepository
 import dev.sertan.android.harcamatakip.service.repository.ExpenseRepository
-import dev.sertan.android.harcamatakip.util.CurrencyConverter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AddExpenseViewModel @Inject constructor(
-    private val expenseRepo: ExpenseRepository,
-    private val exchangeRateRepo: ExchangeRateRepository
+    private val expenseRepo: ExpenseRepository
 ) : ViewModel() {
 
     private val _expense = MutableLiveData(Expense())
-    val expense: LiveData<Expense> by ::_expense
+    val expense: LiveData<Expense> get() = _expense
 
-    private val _currency = MutableLiveData(Currency.LIRA)
-    val currency: LiveData<Currency> by ::_currency
-
-    fun selectCurrency(currency: Currency) = this._currency.postValue(currency)
+    fun selectCurrency(currency: Currency) {
+        _expense.value!!.currency = currency
+    }
 
     fun selectType(category: SpendCategory) {
-        _expense.value!!.category = category
+        expense.value!!.category = category
     }
 
     fun save(view: View) = viewModelScope.launch {
-        val mExpense = expense.value!!
-        mExpense.amount = CurrencyConverter.convert(
-            mExpense.amount,
-            exchangeRateRepo.exchangeRates.value!!.rates,
-            from = currency.value!!
-        )
-        expenseRepo.add(mExpense)
+        expenseRepo.add(expense.value!!)
         view.findNavController().popBackStack()
     }
 }

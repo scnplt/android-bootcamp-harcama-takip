@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:show_expense_icon="@{expense}"
+            app:show_expense_icon="@{expense.category}"
             tools:src="@tools:sample/avatars" />
 
         <!-- Description -->
@@ -56,9 +56,9 @@
             android:textAlignment="center"
             android:textSize="@dimen/text_large"
             android:textStyle="bold"
-            app:calculate_amount="@{expense.amount}"
-            app:calculate_by_currency="@{viewModel.mainCurrency}"
-            app:calculate_exchange_rates="@{viewModel.exchangeRates}"
+            app:currency="@{viewModel.baseCurrency}"
+            app:exchange_rate="@{viewModel.exchangeRates}"
+            app:expense="@{expense}"
             app:layout_constraintBottom_toTopOf="@id/delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

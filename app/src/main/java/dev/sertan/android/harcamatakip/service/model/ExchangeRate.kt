@@ -1,3 +1,8 @@
 package dev.sertan.android.harcamatakip.service.model
 
-data class ExchangeRate(val rates: Map<String, Double> = mapOf())
+import com.google.gson.annotations.SerializedName
+
+data class ExchangeRate(
+    @SerializedName("rates")
+    val data: Map<String, Double> = mapOf()
+)

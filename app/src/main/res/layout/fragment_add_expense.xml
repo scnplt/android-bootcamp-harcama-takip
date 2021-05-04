@@ -80,28 +80,28 @@
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.currency ==  Currency.LIRA}"
+                    android:checked="@{viewModel.expense.currency ==  Currency.LIRA}"
                     android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
                     android:text="@string/lira" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.currency ==  Currency.EURO}"
+                    android:checked="@{viewModel.expense.currency ==  Currency.EURO}"
                     android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
                     android:text="@string/euro" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.currency ==  Currency.DOLLAR}"
+                    android:checked="@{viewModel.expense.currency ==  Currency.DOLLAR}"
                     android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
                     android:text="@string/dollar" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.currency ==  Currency.POUND}"
+                    android:checked="@{viewModel.expense.currency ==  Currency.POUND}"
                     android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
                     android:text="@string/pound" />
 
