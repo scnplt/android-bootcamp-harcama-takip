@@ -1,25 +1,26 @@
 package dev.sertan.android.harcamatakip.service.repository
 
+import androidx.lifecycle.LiveData
 import dev.sertan.android.harcamatakip.service.api.ExchangeRateApi
+import dev.sertan.android.harcamatakip.service.model.ExchangeRate
 import dev.sertan.android.harcamatakip.service.sharedpreferences.ExchangeRateSharedPref
 import javax.inject.Inject
 
-class ExchangeRateRepository @Inject
-constructor(
+class ExchangeRateRepository @Inject constructor(
     private val api: ExchangeRateApi,
     private val sharedPref: ExchangeRateSharedPref
 ) {
-
-    val exchangeRates = sharedPref.data
+    val exchangeRates: LiveData<ExchangeRate>
+        get() = sharedPref.data
 
     suspend fun getExchangeRates(): Boolean = try {
-        val exchangeRates = api.get().body()
+        val result = api.get().body()
 
-        exchangeRates?.let {
+        result?.let {
             sharedPref.putData(it)
         }
 
-        exchangeRates != null
+        result != null
     } catch (e: Exception) {
         false
     }
