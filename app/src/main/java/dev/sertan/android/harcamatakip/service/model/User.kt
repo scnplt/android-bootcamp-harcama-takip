@@ -1,7 +1,7 @@
 package dev.sertan.android.harcamatakip.service.model
 
 data class User(
-    val name: String = "",
-    val gender: Gender = Gender.UNKNOWN,
-    var mainCurrency: Currency = Currency.LIRA
+    var name: String = "",
+    var gender: Gender = Gender.UNKNOWN,
+    var baseCurrency: Currency = Currency.LIRA
 )

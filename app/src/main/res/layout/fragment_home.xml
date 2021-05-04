@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_home_card_info"
+                    android:onClick="@{viewModel::goToSettingsScreen}"
                     android:paddingHorizontal="@dimen/size"
                     android:paddingVertical="@dimen/size_large">
 
@@ -57,7 +58,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/hello"
-                        app:personal_titles="@{viewModel.user}"
+                        app:show_name="@{viewModel.user}"
                         tools:text="Sertan Bey" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -79,9 +80,9 @@
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
-                        app:calculate_amount="@{viewModel.totalAmount}"
-                        app:calculate_by_currency="@{viewModel.user.mainCurrency}"
-                        app:calculate_exchange_rates="@{viewModel.exchangeRates}"
+                        app:currency="@{viewModel.user.baseCurrency}"
+                        app:exchange_rate="@{viewModel.exchangeRate}"
+                        app:expenses="@{viewModel.expenses}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@id/spending"
@@ -107,28 +108,28 @@
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.mainCurrency == Currency.LIRA}"
+                            android:checked="@{viewModel.user.baseCurrency == Currency.LIRA}"
                             android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
                             android:text="@string/lira" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.mainCurrency == Currency.POUND}"
+                            android:checked="@{viewModel.user.baseCurrency == Currency.POUND}"
                             android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
                             android:text="@string/pound" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.mainCurrency == Currency.EURO}"
+                            android:checked="@{viewModel.user.baseCurrency == Currency.EURO}"
                             android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
                             android:text="@string/euro" />
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.mainCurrency == Currency.DOLLAR}"
+                            android:checked="@{viewModel.user.baseCurrency == Currency.DOLLAR}"
                             android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
                             android:text="@string/dollar" />
 

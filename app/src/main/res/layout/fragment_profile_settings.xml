@@ -1,74 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Title -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_large"
-        android:layout_marginTop="@dimen/size_large"
-        android:text="@string/profile_settings"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <!-- Name -->
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_large"
-        android:hint="@string/name"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        <import type="dev.sertan.android.harcamatakip.service.model.Gender" />
 
-    <!-- Bill type -->
-    <RadioGroup
-        android:id="@+id/gender"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/name">
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.viewmodel.ProfileSettingsViewModel" />
+    </data>
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/man"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Title -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_large"
+            android:layout_marginTop="@dimen/size_large"
+            android:text="@string/profile_settings"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Name -->
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_large"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:text="@={viewModel.name}"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <!-- Bill type -->
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/name">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.user.gender == Gender.MAN}"
+                android:onClick="@{() -> viewModel.updateGender(Gender.MAN)}"
+                android:text="@string/man" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.user.gender == Gender.WOMAN}"
+                android:onClick="@{() -> viewModel.updateGender(Gender.WOMAN)}"
+                android:text="@string/woman" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/unanswered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.user.gender == Gender.UNKNOWN}"
+                android:onClick="@{() -> viewModel.updateGender(Gender.UNKNOWN)}"
+                android:text="@string/unknown" />
+
+        </RadioGroup>
+
+        <!-- Add expense -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/man" />
+            android:layout_marginEnd="@dimen/size"
+            android:layout_marginBottom="@dimen/size_large"
+            android:onClick="@{viewModel::save}"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/woman"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/woman" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/unanswered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/unknown" />
-
-    </RadioGroup>
-
-    <!-- Add expense -->
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.App.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/size"
-        android:layout_marginBottom="@dimen/size_large"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

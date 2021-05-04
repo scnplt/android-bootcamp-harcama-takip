@@ -2,26 +2,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/onboarding_nav"
-    app:startDestination="@id/onboardingFirstFragment">
-
+    app:startDestination="@id/onboardingWelcomeFragment">
     <fragment
-        android:id="@+id/onboardingFirstFragment"
+        android:id="@+id/onboardingWelcomeFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.fragment.onboarding.OnboardingWelcomeFragment"
-        android:label="OnboardingFirstFragment">
+        android:label="OnboardingWelcomeFragment">
         <action
-            android:id="@+id/action_onboardingFirstFragment_to_onboardingSecondFragment"
-            app:destination="@id/onboardingSecondFragment" />
+            android:id="@+id/action_onboardingWelcomeFragment_to_onboardingCategoryFragment"
+            app:destination="@id/onboardingCategoryFragment" />
     </fragment>
     <fragment
-        android:id="@+id/onboardingSecondFragment"
+        android:id="@+id/onboardingCategoryFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.fragment.onboarding.OnboardingCategoryFragment"
-        android:label="OnboardingSecondFragment">
+        android:label="OnboardingCategoryFragment">
         <action
-            android:id="@+id/action_onboardingSecondFragment_to_onboardingThirdFragment"
-            app:destination="@id/onboardingThirdFragment" />
+            android:id="@+id/action_onboardingCategoryFragment_to_onboardingCurrencyFragment"
+            app:destination="@id/onboardingCurrencyFragment" />
     </fragment>
     <fragment
-        android:id="@+id/onboardingThirdFragment"
+        android:id="@+id/onboardingCurrencyFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.fragment.onboarding.OnboardingCurrencyFragment"
-        android:label="OnboardingThirdFragment" />
+        android:label="OnboardingCurrencyFragment" />
 </navigation>
