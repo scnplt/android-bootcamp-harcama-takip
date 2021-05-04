@@ -14,8 +14,7 @@ abstract class BaseSharedPreferences<T>(context: Context, private val dataClass:
         .getSharedPreferences(key, Context.MODE_PRIVATE)
 
     private val _data = MutableLiveData(defaultData)
-    val data: LiveData<T>
-        get() = _data
+    val data: LiveData<T> by ::_data
 
     init {
         setupListener()

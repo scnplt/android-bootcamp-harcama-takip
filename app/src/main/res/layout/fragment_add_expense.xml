@@ -1,134 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Title -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_large"
-        android:layout_marginTop="@dimen/size_large"
-        android:text="@string/add_expense"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <!-- Description -->
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/desc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_large"
-        android:hint="@string/desc"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        <import type="dev.sertan.android.harcamatakip.view.binding.BindingConverter" />
 
-    <!-- Expense -->
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/expense"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size"
-        android:hint="@string/expense"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/desc" />
+        <import type="dev.sertan.android.harcamatakip.service.model.Currency" />
 
-    <!-- Currency -->
-    <HorizontalScrollView
-        android:id="@+id/currencies"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/expense">
+        <import type="dev.sertan.android.harcamatakip.service.model.SpendCategory" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:layout_width="wrap_content"
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.viewmodel.AddExpenseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Title -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:selectionRequired="true"
-            app:singleLine="true"
-            app:singleSelection="true">
+            android:layout_marginHorizontal="@dimen/size_large"
+            android:layout_marginTop="@dimen/size_large"
+            android:text="@string/add_expense"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.chip.Chip
+        <!-- Description -->
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_large"
+            android:hint="@string/desc"
+            android:inputType="text"
+            android:text="@={viewModel.expense.desc}"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <!-- Expense -->
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/expense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size"
+            android:hint="@string/expense"
+            android:inputType="numberDecimal"
+            android:text="@={BindingConverter.INSTANCE.doubleToString(viewModel.expense.amount)}"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/desc" />
+
+        <!-- Currency -->
+        <HorizontalScrollView
+            android:id="@+id/currencies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/expense">
+
+            <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lira" />
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.currency ==  Currency.LIRA}"
+                    android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
+                    android:text="@string/lira" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.currency ==  Currency.EURO}"
+                    android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
+                    android:text="@string/euro" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.currency ==  Currency.DOLLAR}"
+                    android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
+                    android:text="@string/dollar" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.currency ==  Currency.POUND}"
+                    android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
+                    android:text="@string/pound" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <!-- Bill type -->
+        <RadioGroup
+            android:id="@+id/expense_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/currencies">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/euro" />
+                android:checked="@{viewModel.expense.category == SpendCategory.SHOP}"
+                android:onClick="@{() -> viewModel.selectType(SpendCategory.SHOP)}"
+                android:text="@string/shop" />
 
-            <com.google.android.material.chip.Chip
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dollar" />
+                android:checked="@{viewModel.expense.category == SpendCategory.RENT}"
+                android:onClick="@{() -> viewModel.selectType(SpendCategory.RENT)}"
+                android:text="@string/rent" />
 
-            <com.google.android.material.chip.Chip
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/bill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pound" />
+                android:checked="@{viewModel.expense.category == SpendCategory.BILL}"
+                android:onClick="@{() -> viewModel.selectType(SpendCategory.BILL)}"
+                android:text="@string/bill" />
 
-        </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.expense.category == SpendCategory.OTHER}"
+                android:onClick="@{() -> viewModel.selectType(SpendCategory.OTHER)}"
+                android:text="@string/other" />
 
-    </HorizontalScrollView>
+        </RadioGroup>
 
-    <!-- Bill type -->
-    <RadioGroup
-        android:id="@+id/expense_type"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size"
-        app:layout_constraintEnd_toEndOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/currencies">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/shop"
+        <!-- Add expense -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/shop" />
+            android:layout_marginEnd="@dimen/size"
+            android:layout_marginBottom="@dimen/size_large"
+            android:onClick="@{(v) -> viewModel.save(v)}"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/rent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rent" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bill" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/other" />
-
-    </RadioGroup>
-
-    <!-- Add expense -->
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.App.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/size"
-        android:layout_marginBottom="@dimen/size_large"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

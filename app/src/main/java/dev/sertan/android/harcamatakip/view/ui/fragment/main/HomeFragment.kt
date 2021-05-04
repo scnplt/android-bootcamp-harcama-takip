@@ -16,6 +16,7 @@ import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: HomeViewModel by viewModels()
+    private lateinit var adapter: HomeAdapter
 
     override fun getViewBinding(container: ViewGroup?): FragmentHomeBinding =
         DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
@@ -23,13 +24,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+        adapter = HomeAdapter(viewModel)
+
+        setupListeners()
         setupRecyclerView()
     }
 
     private fun setupRecyclerView() {
         binding.expenses.layoutManager = LinearLayoutManager(requireContext())
-        binding.expenses.adapter = HomeAdapter(viewModel)
+        binding.expenses.adapter = adapter
+    }
+
+    private fun setupListeners() {
+        viewModel.expenses.observe(viewLifecycleOwner) { adapter.expenses = it }
+        viewModel.user.observe(viewLifecycleOwner) { adapter.notifyDataSetChanged() }
     }
 }
