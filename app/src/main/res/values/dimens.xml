@@ -17,7 +17,7 @@
     <dimen name="animation_large">250dp</dimen>
     <dimen name="stroke_width">1dp</dimen>
     <dimen name="corner_radius">@dimen/size_small</dimen>
-    <dimen name="icon">100dp</dimen>
+    <dimen name="icon">50dp</dimen>
     <dimen name="fab_text">@dimen/text</dimen>
     <dimen name="fab_inset_vertical">0dp</dimen>
     <dimen name="chip_padding">@dimen/size</dimen>
