@@ -25,7 +25,7 @@ Ana ekranda bulunan ekle butonu ile bu ekrana gidebilir ve seçtiğiniz para bir
 
 ## Kullanılan teknolojiler
 * [Kotlin](https://kotlinlang.org/) - Uygulamanın yazıldığı programlama dili.
-* [Data Binding](https://developer.android.com/topic/libraries/data-binding) / [View Binding](https://developer.android.com/topic/libraries/view-binding) - UI bileşenleri ile veri kaynakları arasındaki bağlantı için.
+* [Data Binding](https://developer.android.com/topic/libraries/data-binding) - UI bileşenleri ile veri kaynakları arasındaki bağlantı için.
 * [Room](https://developer.android.com/training/data-storage/room?hl=en) - SQLite ile yerel veritabanı işlemleri için.
 * [Navigation](https://developer.android.com/guide/navigation?hl=en) - Sayfalar arası geçiş ve veri taşıma işlemleri için.
 * [Retrofit](https://square.github.io/retrofit/) - API işlemleri için.
