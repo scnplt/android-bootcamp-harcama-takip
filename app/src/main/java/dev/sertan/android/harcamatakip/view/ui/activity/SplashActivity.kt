@@ -23,17 +23,19 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
     }
 
     private fun skip() {
-        val key = application.packageName
-        val sharedPref = getSharedPreferences(key, Context.MODE_PRIVATE)
-        val isFirstOpening = !sharedPref.contains(key)
-
-        val activityClass = if (isFirstOpening) {
-            sharedPref.edit().putString(key, "").apply()
-            OnboardingActivity::class.java
-        } else MainActivity::class.java
+        val activityClass = if (isFirstOpening()) OnboardingActivity::class.java
+        else MainActivity::class.java
 
         val intent = Intent(this, activityClass)
         startActivity(intent)
         finish()
+    }
+
+    private fun isFirstOpening(): Boolean {
+        val key = application.packageName
+        val sharedPref = getSharedPreferences(key, Context.MODE_PRIVATE)
+        return !sharedPref.contains(key).also {
+            if (!it) sharedPref.edit().putString(key, "").apply()
+        }
     }
 }
