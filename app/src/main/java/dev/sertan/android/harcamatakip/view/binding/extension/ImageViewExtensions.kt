@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.binding
+package dev.sertan.android.harcamatakip.view.binding.extension
 
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter

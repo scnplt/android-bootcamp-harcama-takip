@@ -32,8 +32,8 @@
     <style name="Widget.App.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/bg_input_text</item>
         <item name="android:padding">@dimen/size</item>
-        <item name="android:textColor">@color/secondary_color</item>
-        <item name="android:textColorHint">@color/secondary_light_color</item>
+        <item name="android:textColor">@color/secondary_dark_color</item>
+        <item name="android:textColorHint">@color/secondary_color</item>
         <item name="android:textSize">@dimen/text</item>
     </style>
 
