@@ -1,9 +1,11 @@
 package dev.sertan.android.harcamatakip.service.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "expense_table")
 data class Expense(
     var desc: String = "",
@@ -12,7 +14,7 @@ data class Expense(
     var currency: Currency = Currency.LIRA,
     @PrimaryKey(autoGenerate = true)
     val uid: Int = 0
-) : Serializable {
+) : Parcelable {
     fun amountConvert(exchangeRate: ExchangeRate?, to: Currency?): Double {
         if (exchangeRate == null || to == null) return 0.0
         val baseCurrencyRate = exchangeRate.data[currency.code] ?: 1.0
