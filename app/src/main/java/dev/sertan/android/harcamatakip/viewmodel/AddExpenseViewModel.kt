@@ -23,7 +23,7 @@ class AddExpenseViewModel @Inject constructor(
     val expense: LiveData<Expense> get() = _expense
 
     fun selectCurrency(currency: Currency) {
-        _expense.value!!.currency = currency
+        expense.value!!.currency = currency
     }
 
     fun selectType(category: SpendCategory) {

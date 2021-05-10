@@ -9,7 +9,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.service.model.Gender
 import dev.sertan.android.harcamatakip.service.model.User
 import dev.sertan.android.harcamatakip.service.repository.UserRepository
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,7 +24,7 @@ class ProfileSettingsViewModel
 
     fun save(view: View) {
         val user = user.value!!
-        user.name = name.value!!.capitalize(Locale.getDefault())
+        user.name = name.value!!.trim().lowercase()
         userRepo.updateUser(user)
         view.findNavController().popBackStack()
     }
