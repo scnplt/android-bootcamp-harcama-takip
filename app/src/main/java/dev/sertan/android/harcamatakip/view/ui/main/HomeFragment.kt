@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui.fragment.main
+package dev.sertan.android.harcamatakip.view.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.FragmentHomeBinding
 import dev.sertan.android.harcamatakip.view.adapter.HomeAdapter
-import dev.sertan.android.harcamatakip.view.ui.base.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
+import dev.sertan.android.harcamatakip.view.ui.BaseFragment
+import dev.sertan.android.harcamatakip.viewmodel.main.HomeViewModel
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -18,6 +18,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.viewModel = viewModel
         adapter = HomeAdapter(viewModel)
 
@@ -26,7 +27,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun setupRecyclerView() {
-        binding.expenses.layoutManager = LinearLayoutManager(requireContext())
+        binding.expenses.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
         binding.expenses.adapter = adapter
     }
 

@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="dev.sertan.android.harcamatakip.view.binding.BindingConverter" />
+        <import type="dev.sertan.android.harcamatakip.view.binding.Converters" />
 
         <import type="dev.sertan.android.harcamatakip.service.model.Currency" />
 
@@ -12,7 +12,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.AddExpenseViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.main.AddExpenseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <!-- Expense -->
+        <!-- Expense amount -->
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/expense"
             android:layout_width="0dp"
@@ -54,12 +54,12 @@
             android:layout_marginTop="@dimen/size"
             android:hint="@string/expense"
             android:inputType="numberDecimal"
-            android:text="@={BindingConverter.INSTANCE.doubleToString(viewModel.expense.amount)}"
+            android:text="@={Converters.doubleToString(viewModel.expense.amount)}"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/desc" />
 
-        <!-- Currency -->
+        <!-- Currencies -->
         <HorizontalScrollView
             android:id="@+id/currencies"
             android:layout_width="0dp"
@@ -109,7 +109,7 @@
 
         </HorizontalScrollView>
 
-        <!-- Bill type -->
+        <!-- Expense categories -->
         <RadioGroup
             android:id="@+id/expense_type"
             android:layout_width="0dp"
@@ -166,4 +166,5 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

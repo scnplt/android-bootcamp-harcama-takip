@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="listener"
-            type="dev.sertan.android.harcamatakip.view.ui.fragment.onboarding.OnboardingListener" />
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.viewmodel.OnboardingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,10 +64,11 @@
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v) -> listener.skipButtonOnClickListener(v)}"
+            android:onClick="@{(v) -> viewModel.goToCurrencyScreen(v)}"
             android:text="@string/skip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

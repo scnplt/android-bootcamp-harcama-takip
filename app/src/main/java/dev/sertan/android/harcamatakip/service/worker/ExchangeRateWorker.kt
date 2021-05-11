@@ -17,21 +17,24 @@ class ExchangeRateWorker @AssistedInject constructor(
 
     override suspend fun doWork(): Result =
         if (repo.updateExchangeRates()) Result.success()
-        else Result.failure()
+        else Result.retry()
 
     companion object {
+        private const val NAME = "ExchangeRateWorker"
+
         fun setup(context: Context) {
             val constraints = Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build()
 
-            val worker = PeriodicWorkRequestBuilder<ExchangeRateWorker>(20, TimeUnit.MINUTES)
+            val workRequest = PeriodicWorkRequestBuilder<ExchangeRateWorker>(20, TimeUnit.MINUTES)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 5, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build()
 
-            val workManager = WorkManager.getInstance(context)
-
-            workManager.enqueue(worker)
+            WorkManager
+                .getInstance(context)
+                .enqueueUniquePeriodicWork(NAME, ExistingPeriodicWorkPolicy.KEEP, workRequest)
         }
     }
 }

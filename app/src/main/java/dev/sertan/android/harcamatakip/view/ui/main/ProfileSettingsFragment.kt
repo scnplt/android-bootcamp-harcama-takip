@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui.fragment.main
+package dev.sertan.android.harcamatakip.view.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -6,8 +6,8 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.FragmentProfileSettingsBinding
-import dev.sertan.android.harcamatakip.view.ui.base.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.ProfileSettingsViewModel
+import dev.sertan.android.harcamatakip.view.ui.BaseFragment
+import dev.sertan.android.harcamatakip.viewmodel.main.ProfileSettingsViewModel
 
 @AndroidEntryPoint
 class ProfileSettingsFragment :

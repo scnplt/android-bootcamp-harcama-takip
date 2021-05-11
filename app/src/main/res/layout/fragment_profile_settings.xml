@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.ProfileSettingsViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.main.ProfileSettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <!-- Bill type -->
+        <!-- Gender -->
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="0dp"
@@ -78,7 +78,7 @@
 
         </RadioGroup>
 
-        <!-- Add expense -->
+        <!-- Save -->
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
@@ -91,4 +91,5 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

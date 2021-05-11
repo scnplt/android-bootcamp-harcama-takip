@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.viewmodel
+package dev.sertan.android.harcamatakip.viewmodel.main
 
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import dev.sertan.android.harcamatakip.service.model.User
 import dev.sertan.android.harcamatakip.service.repository.ExchangeRateRepository
 import dev.sertan.android.harcamatakip.service.repository.ExpenseRepository
 import dev.sertan.android.harcamatakip.service.repository.UserRepository
-import dev.sertan.android.harcamatakip.view.ui.fragment.main.HomeFragmentDirections
+import dev.sertan.android.harcamatakip.view.ui.main.HomeFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,17 +32,17 @@ class HomeViewModel @Inject constructor(
         userRepo.updateUser(user.value!!.apply { baseCurrency = currency })
 
     fun goToAddExpenseScreen(view: View) {
-        val action = HomeFragmentDirections.actionHomeFragmentToAddExpenseFragment()
+        val action = HomeFragmentDirections.actionHomeToAddExpense()
         view.findNavController().navigate(action)
     }
 
     fun goToExpenseDetailScreen(view: View, expense: Expense) {
-        val action = HomeFragmentDirections.actionHomeFragmentToExpenseDetailFragment(expense)
+        val action = HomeFragmentDirections.actionHomeToExpenseDetail(expense)
         view.findNavController().navigate(action)
     }
 
     fun goToSettingsScreen(view: View) {
-        val action = HomeFragmentDirections.actionHomeFragmentToProfileSettingsFragment()
+        val action = HomeFragmentDirections.actionHomeToProfileSettings()
         view.findNavController().navigate(action)
     }
 }

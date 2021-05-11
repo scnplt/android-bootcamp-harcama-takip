@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.sertan.android.harcamatakip.service.model.ExchangeRate
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class ExchangeRateSharedPref @Inject constructor(@ApplicationContext context: Context) :
     BaseSharedPreferences<ExchangeRate>(context, ExchangeRate::class.java) {

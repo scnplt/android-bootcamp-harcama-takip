@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.main.HomeViewModel" />
     </data>
 
     <RelativeLayout
@@ -91,7 +91,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Currency -->
+                <!-- Currencies -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
