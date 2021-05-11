@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui.activity
+package dev.sertan.android.harcamatakip.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint

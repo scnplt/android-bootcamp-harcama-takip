@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.main.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
         android:layout_marginVertical="@dimen/size_small"
         android:onClick="@{(v) -> viewModel.goToExpenseDetailScreen(v, expense)}">
 
-        <!-- Bill icon-->
+        <!-- Expense icon-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icon"
             android:layout_width="@dimen/icon"
@@ -32,7 +32,7 @@
             app:show_expense_icon="@{expense.category}"
             tools:src="@tools:sample/avatars" />
 
-        <!-- Bill description -->
+        <!-- Expense description -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/desc"
             android:layout_width="0dp"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Elektrik" />
 
-        <!-- Expense -->
+        <!-- Expense amount -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/amount"
             android:layout_width="wrap_content"
@@ -64,4 +64,5 @@
             tools:text="60 TL" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

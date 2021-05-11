@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.sertan.android.harcamatakip.service.model.User
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class UserSharedPref @Inject constructor(@ApplicationContext context: Context) :
     BaseSharedPreferences<User>(context, User::class.java) {

@@ -16,19 +16,8 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".view.ui.activity.OnboardingActivity"
+            android:name=".view.ui.MainActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".view.ui.activity.MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".view.ui.activity.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.HarcamaTakip.Fullscreen"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
