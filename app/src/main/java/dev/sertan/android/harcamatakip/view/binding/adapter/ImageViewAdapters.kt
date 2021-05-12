@@ -14,9 +14,9 @@ object ImageViewAdapters {
     }
 
     private fun getCategoryIconId(category: SpendCategory) = when (category) {
-        SpendCategory.BILL -> R.drawable.bill
-        SpendCategory.RENT -> R.drawable.home
-        SpendCategory.SHOP -> R.drawable.shop
-        else -> R.drawable.hand
+        SpendCategory.BILL -> R.drawable.ic_bill
+        SpendCategory.RENT -> R.drawable.ic_home
+        SpendCategory.SHOP -> R.drawable.ic_shop
+        else -> R.drawable.ic_hand
     }
 }

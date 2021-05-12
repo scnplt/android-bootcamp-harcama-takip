@@ -7,11 +7,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.main.ExpenseDetailViewModel" />
-
-        <variable
-            name="expense"
-            type="dev.sertan.android.harcamatakip.service.model.Expense" />
+            type="dev.sertan.android.harcamatakip.viewmodel.ExpenseDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:show_expense_icon="@{expense.category}"
+            app:show_expense_icon="@{viewModel.expense.category}"
             tools:src="@tools:sample/avatars" />
 
         <!-- Description -->
@@ -39,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size_large"
-            android:text="@{expense.desc.length() == 0 ? @string/default_desc : expense.desc}"
+            android:text="@{viewModel.expense.desc.isEmpty() ? @string/default_desc : viewModel.expense.desc}"
             android:textAlignment="center"
             android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toTopOf="@id/amount"
@@ -59,7 +55,7 @@
             android:textStyle="bold"
             app:currency="@{viewModel.baseCurrency}"
             app:exchange_rate="@{viewModel.exchangeRates}"
-            app:expense="@{expense}"
+            app:expense="@{viewModel.expense}"
             app:layout_constraintBottom_toTopOf="@id/delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +68,7 @@
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v) -> viewModel.deleteExpense(v, expense)}"
+            android:onClick="@{(v) -> viewModel.deleteExpense(v)}"
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

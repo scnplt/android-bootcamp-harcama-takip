@@ -1,24 +1,20 @@
-package dev.sertan.android.harcamatakip.view.ui.splash
+package dev.sertan.android.harcamatakip.view.ui.fragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
-import dev.sertan.android.harcamatakip.databinding.FragmentSplashBinding
+import dev.sertan.android.harcamatakip.databinding.FragmentAddExpenseBinding
 import dev.sertan.android.harcamatakip.view.ui.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.SplashViewModel
+import dev.sertan.android.harcamatakip.viewmodel.AddExpenseViewModel
 
 @AndroidEntryPoint
-class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_splash) {
-    private val viewModel: SplashViewModel by viewModels()
+class AddExpenseFragment : BaseFragment<FragmentAddExpenseBinding>(R.layout.fragment_add_expense) {
+    private val viewModel: AddExpenseViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-    }
-
-    companion object {
-        const val SKIP_DURATION = 3000L
     }
 }

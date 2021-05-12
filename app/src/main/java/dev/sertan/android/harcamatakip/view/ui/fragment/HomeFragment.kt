@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui.main
+package dev.sertan.android.harcamatakip.view.ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.FragmentHomeBinding
 import dev.sertan.android.harcamatakip.view.adapter.HomeAdapter
 import dev.sertan.android.harcamatakip.view.ui.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.main.HomeViewModel
+import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {

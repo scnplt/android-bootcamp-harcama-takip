@@ -1,74 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/size">
 
-    <data>
+    <!-- Animation -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_animation"
+        android:layout_width="@dimen/animation_large"
+        android:layout_height="@dimen/animation_large"
+        android:layout_marginBottom="@dimen/size"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="billing-management.json"
+        app:lottie_loop="true"
+        tools:src="@tools:sample/avatars" />
 
-        <variable
-            name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.OnboardingViewModel" />
-    </data>
+    <!-- Title -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size"
+        android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toTopOf="@+id/desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_animation" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/size">
+    <!-- Description -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_desc"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
-        <!-- Animation -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_animation"
-            android:layout_width="@dimen/animation_large"
-            android:layout_height="@dimen/animation_large"
-            android:layout_marginBottom="@dimen/size"
-            app:layout_constraintBottom_toTopOf="@+id/title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="billing-management.json"
-            app:lottie_loop="true"
-            tools:src="@tools:sample/avatars" />
-
-        <!-- Title -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/size"
-            android:text="@string/welcome"
-            android:textAlignment="center"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toTopOf="@+id/desc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lottie_animation" />
-
-        <!-- Description -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_desc"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_small"
-            app:layout_constraintBottom_toTopOf="@+id/skip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
-
-        <!-- Skip -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/skip"
-            style="@style/Widget.App.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{(v) -> viewModel.goToCategoryScreen(v)}"
-            android:text="@string/skip"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

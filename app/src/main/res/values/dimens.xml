@@ -21,4 +21,5 @@
     <dimen name="fab_text">@dimen/text</dimen>
     <dimen name="fab_inset_vertical">0dp</dimen>
     <dimen name="chip_padding">@dimen/size</dimen>
+    <dimen name="tab_dot_thickness">6dp</dimen>
 </resources>

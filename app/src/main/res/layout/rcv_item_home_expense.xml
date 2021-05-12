@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.main.HomeViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.splash.SplashFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splash_to_home"
@@ -14,14 +14,14 @@
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splash_to_welcome"
-            app:destination="@id/onboardingWelcomeFragment"
+            android:id="@+id/action_splash_to_onboarding"
+            app:destination="@id/onboardingFragment"
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.main.HomeFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_home_to_addExpense"
@@ -35,11 +35,11 @@
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.main.AddExpenseFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.AddExpenseFragment"
         android:label="AddExpenseFragment" />
     <fragment
         android:id="@+id/expenseDetailFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.main.ExpenseDetailFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.ExpenseDetailFragment"
         android:label="ExpenseDetailFragment">
         <argument
             android:name="expense"
@@ -47,30 +47,14 @@
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.main.ProfileSettingsFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.SettingsFragment"
         android:label="ProfileSettingsFragment" />
     <fragment
-        android:id="@+id/onboardingWelcomeFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.onboarding.OnboardingWelcomeFragment"
-        android:label="OnboardingWelcomeFragment">
+        android:id="@+id/onboardingFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.OnboardingFragment"
+        android:label="OnboardingFragment">
         <action
-            android:id="@+id/action_welcome_to_category"
-            app:destination="@id/onboardingCategoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/onboardingCategoryFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.onboarding.OnboardingCategoryFragment"
-        android:label="OnboardingCategoryFragment">
-        <action
-            android:id="@+id/action_category_to_currency"
-            app:destination="@id/onboardingCurrencyFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/onboardingCurrencyFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.onboarding.OnboardingCurrencyFragment"
-        android:label="OnboardingCurrencyFragment">
-        <action
-            android:id="@+id/action_currency_to_home"
+            android:id="@+id/action_onboarding_to_home"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />

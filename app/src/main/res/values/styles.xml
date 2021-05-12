@@ -2,7 +2,7 @@
 <resources>
     <!-- Button -->
     <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/secondary_color</item>
+        <item name="android:backgroundTint">@drawable/color_button</item>
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textSize">@dimen/fab_text</item>
         <item name="android:insetTop">@dimen/fab_inset_vertical</item>
@@ -40,4 +40,13 @@
         <item name="android:paddingStart">@dimen/size_small</item>
         <item name="android:paddingEnd">@dimen/size_small</item>
     </style>
+
+    <!-- Tab -->
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@drawable/ic_tab_dot</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+    </style>
+
 </resources>

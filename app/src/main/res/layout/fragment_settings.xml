@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.main.ProfileSettingsViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

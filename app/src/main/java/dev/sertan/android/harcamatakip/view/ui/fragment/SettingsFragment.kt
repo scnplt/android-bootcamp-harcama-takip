@@ -1,18 +1,19 @@
-package dev.sertan.android.harcamatakip.view.ui.onboarding
+package dev.sertan.android.harcamatakip.view.ui.fragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
-import dev.sertan.android.harcamatakip.databinding.FragmentOnboardingCurrencyBinding
+import dev.sertan.android.harcamatakip.databinding.FragmentSettingsBinding
 import dev.sertan.android.harcamatakip.view.ui.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.OnboardingViewModel
+import dev.sertan.android.harcamatakip.viewmodel.SettingsViewModel
 
 @AndroidEntryPoint
-class OnboardingCurrencyFragment :
-    BaseFragment<FragmentOnboardingCurrencyBinding>(R.layout.fragment_onboarding_currency) {
-    private val viewModel: OnboardingViewModel by viewModels()
+class SettingsFragment :
+    BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
+
+    private val viewModel: SettingsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
