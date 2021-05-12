@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.viewmodel.main
+package dev.sertan.android.harcamatakip.viewmodel
 
 import android.view.View
 import androidx.lifecycle.LiveData

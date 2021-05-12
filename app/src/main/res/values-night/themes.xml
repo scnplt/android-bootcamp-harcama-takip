@@ -18,5 +18,7 @@
         <item name="chipStyle">@style/Widget.App.Chip</item>
         <!-- EditText -->
         <item name="editTextStyle">@style/Widget.App.EditText</item>
+        <!-- TabLayout -->
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 </resources>

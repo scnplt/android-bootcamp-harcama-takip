@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.viewmodel.main
+package dev.sertan.android.harcamatakip.viewmodel
 
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import dev.sertan.android.harcamatakip.service.model.User
 import dev.sertan.android.harcamatakip.service.repository.ExchangeRateRepository
 import dev.sertan.android.harcamatakip.service.repository.ExpenseRepository
 import dev.sertan.android.harcamatakip.service.repository.UserRepository
-import dev.sertan.android.harcamatakip.view.ui.main.HomeFragmentDirections
+import dev.sertan.android.harcamatakip.view.ui.fragment.HomeFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel

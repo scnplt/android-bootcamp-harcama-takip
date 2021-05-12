@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.viewmodel.main
+package dev.sertan.android.harcamatakip.viewmodel
 
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import dev.sertan.android.harcamatakip.service.repository.UserRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileSettingsViewModel
+class SettingsViewModel
 @Inject constructor(private val userRepo: UserRepository) : ViewModel() {
     val user: LiveData<User> get() = userRepo.user
 

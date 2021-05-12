@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.viewmodel.main
+package dev.sertan.android.harcamatakip.viewmodel
 
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -22,11 +22,12 @@ class ExpenseDetailViewModel @Inject constructor(
     private val userRepo: UserRepository
 ) : ViewModel() {
 
-    fun getBaseCurrency(): Currency = userRepo.user.value!!.baseCurrency
-
+    var expense = Expense()
     val exchangeRates: LiveData<ExchangeRate> get() = exchangeRateRepo.exchangeRates
 
-    fun deleteExpense(view: View, expense: Expense) = viewModelScope.launch {
+    fun getBaseCurrency(): Currency = userRepo.user.value!!.baseCurrency
+
+    fun deleteExpense(view: View) = viewModelScope.launch {
         expenseRepo.delete(expense)
         view.findNavController().popBackStack()
     }

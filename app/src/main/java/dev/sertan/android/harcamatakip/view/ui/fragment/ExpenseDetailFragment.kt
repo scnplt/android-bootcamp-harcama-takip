@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui.main
+package dev.sertan.android.harcamatakip.view.ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.FragmentExpenseDetailBinding
 import dev.sertan.android.harcamatakip.view.ui.BaseFragment
-import dev.sertan.android.harcamatakip.viewmodel.main.ExpenseDetailViewModel
+import dev.sertan.android.harcamatakip.viewmodel.ExpenseDetailViewModel
 
 @AndroidEntryPoint
 class ExpenseDetailFragment :
@@ -19,7 +19,6 @@ class ExpenseDetailFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.expense = args.expense
-        binding.viewModel = viewModel
+        binding.viewModel = viewModel.apply { expense = args.expense }
     }
 }

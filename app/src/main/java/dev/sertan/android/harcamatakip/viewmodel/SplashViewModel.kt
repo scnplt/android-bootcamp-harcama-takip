@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.service.sharedpreferences.OpeningStatusSharedPref
-import dev.sertan.android.harcamatakip.view.ui.splash.SplashFragment
-import dev.sertan.android.harcamatakip.view.ui.splash.SplashFragmentDirections
+import dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragment
+import dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,7 +18,7 @@ class SplashViewModel @Inject constructor(private val sharedPref: OpeningStatusS
     fun skip(view: View) {
         val runnable = Runnable {
             val action = if (sharedPref.isFirstOpening())
-                SplashFragmentDirections.actionSplashToWelcome()
+                SplashFragmentDirections.actionSplashToOnboarding()
             else SplashFragmentDirections.actionSplashToHome()
 
             view.findNavController().navigate(action)
