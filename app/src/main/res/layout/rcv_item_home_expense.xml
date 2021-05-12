@@ -21,47 +21,47 @@
         android:layout_marginVertical="@dimen/size_small"
         android:onClick="@{(v) -> viewModel.goToExpenseDetailScreen(v, expense)}">
 
-        <!-- Expense icon-->
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="icon,desc,amount"
+            app:flow_horizontalGap="@dimen/size"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_verticalGap="@dimen/size"
+            app:flow_wrapMode="aligned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icon"
-            android:layout_width="@dimen/icon"
-            android:layout_height="@dimen/icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="@dimen/home_rc_item_icon"
+            android:layout_height="@dimen/home_rc_item_icon"
             app:show_expense_icon="@{expense.category}"
             tools:src="@tools:sample/avatars" />
 
-        <!-- Expense description -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/desc"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/size"
-            android:maxLines="2"
+            android:layout_marginHorizontal="@dimen/size_small"
+            android:maxLines="3"
             android:text="@{expense.desc.length() == 0 ? @string/default_desc : expense.desc}"
-            android:textAlignment="center"
             android:textSize="@dimen/text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/amount"
-            app:layout_constraintStart_toEndOf="@id/icon"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="Elektrik" />
 
-        <!-- Expense amount -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:textSize="@dimen/text"
             android:textStyle="bold"
             app:currency="@{viewModel.user.baseCurrency}"
             app:exchange_rate="@{viewModel.exchangeRate}"
             app:expense="@{expense}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="60 TL" />
+            tools:text="₺60" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
