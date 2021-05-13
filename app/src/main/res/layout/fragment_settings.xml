@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="dev.sertan.android.harcamatakip.service.model.Gender" />
+        <import type="dev.sertan.android.harcamatakip.data.model.Gender" />
 
         <variable
             name="viewModel"

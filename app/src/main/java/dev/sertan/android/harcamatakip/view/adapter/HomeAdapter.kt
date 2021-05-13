@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.RcvItemHomeExpenseBinding
-import dev.sertan.android.harcamatakip.service.model.Expense
+import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
 
 class HomeAdapter(private val viewModel: HomeViewModel) :

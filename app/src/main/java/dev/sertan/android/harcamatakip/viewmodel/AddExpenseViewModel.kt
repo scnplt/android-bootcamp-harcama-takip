@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.sertan.android.harcamatakip.service.model.Currency
-import dev.sertan.android.harcamatakip.service.model.Expense
-import dev.sertan.android.harcamatakip.service.model.SpendCategory
-import dev.sertan.android.harcamatakip.service.repository.ExpenseRepository
+import dev.sertan.android.harcamatakip.data.model.Currency
+import dev.sertan.android.harcamatakip.data.model.Expense
+import dev.sertan.android.harcamatakip.data.model.SpendCategory
+import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

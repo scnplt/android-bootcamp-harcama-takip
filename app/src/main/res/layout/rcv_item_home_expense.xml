@@ -7,7 +7,7 @@
 
         <variable
             name="expense"
-            type="dev.sertan.android.harcamatakip.service.model.Expense" />
+            type="dev.sertan.android.harcamatakip.data.model.Expense" />
 
         <variable
             name="viewModel"

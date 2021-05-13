@@ -3,7 +3,7 @@ package dev.sertan.android.harcamatakip.view.binding.adapter
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
 import dev.sertan.android.harcamatakip.R
-import dev.sertan.android.harcamatakip.service.model.*
+import dev.sertan.android.harcamatakip.data.model.*
 
 object TextViewAdapters {
     @JvmStatic
