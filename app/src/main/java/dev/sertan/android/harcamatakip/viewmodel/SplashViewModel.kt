@@ -6,7 +6,7 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.sertan.android.harcamatakip.service.sharedpreferences.OpeningStatusSharedPref
+import dev.sertan.android.harcamatakip.data.sharedpreferences.OpeningStatusSharedPref
 import dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragment
 import dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragmentDirections
 import javax.inject.Inject

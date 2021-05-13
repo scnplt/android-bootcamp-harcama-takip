@@ -43,7 +43,7 @@
         android:label="ExpenseDetailFragment">
         <argument
             android:name="expense"
-            app:argType="dev.sertan.android.harcamatakip.service.model.Expense" />
+            app:argType="dev.sertan.android.harcamatakip.data.model.Expense" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"

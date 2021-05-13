@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="dev.sertan.android.harcamatakip.service.model.Currency" />
+        <import type="dev.sertan.android.harcamatakip.data.model.Currency" />
 
         <variable
             name="viewModel"

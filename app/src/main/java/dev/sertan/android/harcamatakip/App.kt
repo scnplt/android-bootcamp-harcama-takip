@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
-import dev.sertan.android.harcamatakip.service.worker.ExchangeRateWorker
+import dev.sertan.android.harcamatakip.data.worker.ExchangeRateWorker
 import javax.inject.Inject
 
 @HiltAndroidApp

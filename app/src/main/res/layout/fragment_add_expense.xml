@@ -6,9 +6,9 @@
 
         <import type="dev.sertan.android.harcamatakip.view.binding.Converters" />
 
-        <import type="dev.sertan.android.harcamatakip.service.model.Currency" />
+        <import type="dev.sertan.android.harcamatakip.data.model.Currency" />
 
-        <import type="dev.sertan.android.harcamatakip.service.model.SpendCategory" />
+        <import type="dev.sertan.android.harcamatakip.data.model.SpendCategory" />
 
         <variable
             name="viewModel"

@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.sertan.android.harcamatakip.service.model.Gender
-import dev.sertan.android.harcamatakip.service.model.User
-import dev.sertan.android.harcamatakip.service.repository.UserRepository
+import dev.sertan.android.harcamatakip.data.model.Gender
+import dev.sertan.android.harcamatakip.data.model.User
+import dev.sertan.android.harcamatakip.data.repository.UserRepository
 import javax.inject.Inject
 
 @HiltViewModel
