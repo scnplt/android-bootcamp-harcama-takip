@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.sertan.android.harcamatakip.R
-import dev.sertan.android.harcamatakip.databinding.RcvItemHomeExpenseBinding
 import dev.sertan.android.harcamatakip.data.model.Expense
+import dev.sertan.android.harcamatakip.databinding.ListItemExpenseBinding
 import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
 
 class HomeAdapter(private val viewModel: HomeViewModel) :
@@ -30,9 +30,9 @@ class HomeAdapter(private val viewModel: HomeViewModel) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<RcvItemHomeExpenseBinding>(
+        val binding = DataBindingUtil.inflate<ListItemExpenseBinding>(
             inflater,
-            R.layout.rcv_item_home_expense,
+            R.layout.list_item_expense,
             parent,
             false
         )
@@ -46,6 +46,6 @@ class HomeAdapter(private val viewModel: HomeViewModel) :
 
     override fun getItemCount(): Int = expenses.size
 
-    class HomeViewHolder(val binding: RcvItemHomeExpenseBinding) :
+    class HomeViewHolder(val binding: ListItemExpenseBinding) :
         RecyclerView.ViewHolder(binding.root)
 }
