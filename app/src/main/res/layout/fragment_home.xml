@@ -60,7 +60,7 @@
                         app:layout_constraintEnd_toStartOf="@id/total_expense"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/hello"
-                        app:show_name="@{viewModel.user}"
+                        app:userName="@{viewModel.user}"
                         tools:text="Sertan Bey" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -85,7 +85,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/home_text_card_info"
                         app:currency="@{viewModel.user.baseCurrency}"
-                        app:exchange_rate="@{viewModel.exchangeRate}"
+                        app:exchangeRate="@{viewModel.exchangeRate}"
                         app:expenses="@{viewModel.expenses}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

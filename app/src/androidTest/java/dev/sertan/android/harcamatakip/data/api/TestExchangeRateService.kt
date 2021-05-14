@@ -17,14 +17,14 @@ class TestExchangeRateService {
     val hiltRule = HiltAndroidRule(this)
 
     @Inject
-    lateinit var api: ExchangeRateService
+    lateinit var service: ExchangeRateService
 
     @Before
     fun setup() = hiltRule.inject()
 
     @Test
     fun isResponseOfGetMethodSuccessful() = runBlocking {
-        val response = api.get()
+        val response = service.get()
         Truth.assertThat(response.isSuccessful).isTrue()
     }
 }

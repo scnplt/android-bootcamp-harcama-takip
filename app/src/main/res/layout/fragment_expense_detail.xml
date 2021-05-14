@@ -20,13 +20,13 @@
             android:layout_width="@dimen/expense_detail_icon"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/size_large"
+            app:categoryIcon="@{viewModel.expense.category}"
             app:layout_constraintBottom_toTopOf="@id/desc"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:show_expense_icon="@{viewModel.expense.category}"
             tools:src="@tools:sample/avatars" />
 
         <!-- Description -->
@@ -54,7 +54,7 @@
             android:textSize="@dimen/text_large"
             android:textStyle="bold"
             app:currency="@{viewModel.baseCurrency}"
-            app:exchange_rate="@{viewModel.exchangeRates}"
+            app:exchangeRate="@{viewModel.exchangeRates}"
             app:expense="@{viewModel.expense}"
             app:layout_constraintBottom_toTopOf="@id/delete"
             app:layout_constraintEnd_toEndOf="parent"
