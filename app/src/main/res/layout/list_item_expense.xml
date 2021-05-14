@@ -38,7 +38,7 @@
             android:id="@+id/icon"
             android:layout_width="@dimen/home_rc_item_icon"
             android:layout_height="@dimen/home_rc_item_icon"
-            app:show_expense_icon="@{expense.category}"
+            app:categoryIcon="@{expense.category}"
             tools:src="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +59,7 @@
             android:textSize="@dimen/text"
             android:textStyle="bold"
             app:currency="@{viewModel.user.baseCurrency}"
-            app:exchange_rate="@{viewModel.exchangeRate}"
+            app:exchangeRate="@{viewModel.exchangeRate}"
             app:expense="@{expense}"
             tools:text="₺60" />
 

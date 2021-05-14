@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.SplashFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splash_to_home"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.HomeFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_home_to_addExpense"
@@ -35,11 +35,11 @@
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.AddExpenseFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.AddExpenseFragment"
         android:label="AddExpenseFragment" />
     <fragment
         android:id="@+id/expenseDetailFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.ExpenseDetailFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.ExpenseDetailFragment"
         android:label="ExpenseDetailFragment">
         <argument
             android:name="expense"
@@ -47,11 +47,11 @@
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.SettingsFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.SettingsFragment"
         android:label="ProfileSettingsFragment" />
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.fragment.OnboardingFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.OnboardingFragment"
         android:label="OnboardingFragment">
         <action
             android:id="@+id/action_onboarding_to_home"

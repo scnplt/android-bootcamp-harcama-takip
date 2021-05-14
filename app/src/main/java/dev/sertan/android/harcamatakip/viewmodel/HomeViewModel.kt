@@ -12,7 +12,7 @@ import dev.sertan.android.harcamatakip.data.model.User
 import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepository
 import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
 import dev.sertan.android.harcamatakip.data.repository.UserRepository
-import dev.sertan.android.harcamatakip.view.ui.fragment.HomeFragmentDirections
+import dev.sertan.android.harcamatakip.view.ui.HomeFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
