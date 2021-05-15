@@ -13,20 +13,17 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
+
     @Inject
     lateinit var openingStatus: OpeningStatusSharedPref
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val skip = Runnable {
-            val action =
-                if (openingStatus.isFirstOpening()) SplashFragmentDirections.actionSplashToOnboarding()
-                else SplashFragmentDirections.actionSplashToHome()
+        Runnable {
+            val action = if (openingStatus.isFirst()) SplashFragmentDirections.splashToOnboarding()
+            else SplashFragmentDirections.splashToHome()
             findNavController().navigate(action)
-        }
-
-        Handler(Looper.getMainLooper()).postDelayed(skip, SKIP_DURATION)
+        }.apply { Handler(Looper.getMainLooper()).postDelayed(this, SKIP_DURATION) }
     }
 
     companion object {

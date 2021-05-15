@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Common -->
+    <!-- TODO düzenlenecek-->
     <dimen name="size">16dp</dimen>
     <dimen name="size_large">32dp</dimen>
     <dimen name="size_small">8dp</dimen>
@@ -19,7 +19,7 @@
 
     <!-- Other -->
     <dimen name="animation_large">250dp</dimen>
-    <dimen name="stroke_width">1dp</dimen>
+    <dimen name="stroke_width">3dp</dimen>
     <dimen name="corner_radius">@dimen/size_small</dimen>
     <dimen name="fab_text">@dimen/text</dimen>
     <dimen name="fab_inset_vertical">0dp</dimen>

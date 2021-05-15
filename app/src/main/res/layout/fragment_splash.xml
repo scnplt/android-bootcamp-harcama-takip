@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondary_color">
+    android:background="@color/secondary_color"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/size">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/size">
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/animation_large"
+        android:layout_height="@dimen/animation_large"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="bill.json"
+        app:lottie_loop="false"
+        tools:src="@tools:sample/avatars" />
 
-        <!-- Animation -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="@dimen/animation_large"
-            android:layout_height="@dimen/animation_large"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="bill.json"
-            app:lottie_loop="false"
-            tools:src="@tools:sample/avatars" />
-
-        <!-- Title -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+</LinearLayout>

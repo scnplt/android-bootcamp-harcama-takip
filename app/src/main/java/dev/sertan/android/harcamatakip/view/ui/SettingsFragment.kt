@@ -10,8 +10,7 @@ import dev.sertan.android.harcamatakip.view.ui.base.BaseFragment
 import dev.sertan.android.harcamatakip.viewmodel.SettingsViewModel
 
 @AndroidEntryPoint
-class SettingsFragment :
-    BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
+class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
 
     private val viewModel: SettingsViewModel by viewModels()
 

@@ -15,12 +15,10 @@ class App : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
-        setupWorkers()
+        ExchangeRateWorker.setup(applicationContext)
     }
 
     override fun getWorkManagerConfiguration(): Configuration = Configuration.Builder()
         .setWorkerFactory(workerFactory)
         .build()
-
-    private fun setupWorkers() = ExchangeRateWorker.setup(applicationContext)
 }

@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Title -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="0dp"
@@ -29,7 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Name -->
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/name"
             android:layout_width="0dp"
@@ -37,12 +35,11 @@
             android:layout_marginTop="@dimen/size_large"
             android:hint="@string/name"
             android:inputType="text"
-            android:text="@={viewModel.name}"
+            android:text="@={viewModel.user.name}"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <!-- Gender -->
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="0dp"
@@ -56,7 +53,7 @@
                 android:id="@+id/man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.user.gender == Gender.MAN}"
+                android:checked="@{viewModel.isGender(Gender.MAN)}"
                 android:onClick="@{() -> viewModel.updateGender(Gender.MAN)}"
                 android:text="@string/man" />
 
@@ -64,7 +61,7 @@
                 android:id="@+id/woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.user.gender == Gender.WOMAN}"
+                android:checked="@{viewModel.isGender(Gender.WOMAN)}"
                 android:onClick="@{() -> viewModel.updateGender(Gender.WOMAN)}"
                 android:text="@string/woman" />
 
@@ -72,24 +69,21 @@
                 android:id="@+id/unanswered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.user.gender == Gender.UNKNOWN}"
+                android:checked="@{viewModel.isGender(Gender.UNKNOWN)}"
                 android:onClick="@{() -> viewModel.updateGender(Gender.UNKNOWN)}"
                 android:text="@string/unknown" />
-
         </RadioGroup>
 
-        <!-- Save -->
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/size"
             android:layout_marginBottom="@dimen/size_large"
-            android:onClick="@{viewModel::save}"
+            android:onClick="@{(view) -> viewModel.updateUser(view)}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

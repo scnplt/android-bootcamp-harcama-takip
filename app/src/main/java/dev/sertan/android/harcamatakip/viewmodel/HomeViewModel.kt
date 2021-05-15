@@ -23,26 +23,17 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     val user: LiveData<User> get() = userRepo.user
-
+    val expenses: LiveData<List<Expense>> get() = expenseRepo.expenses
     val exchangeRate: LiveData<ExchangeRate> get() = exchangeRateRepo.exchangeRates
 
-    val expenses: LiveData<List<Expense>> get() = expenseRepo.expenses
+    fun isCurrency(currency: Currency) = currency == user.value!!.baseCurrency
 
-    fun selectCurrency(currency: Currency) =
+    fun updateCurrency(currency: Currency) =
         userRepo.updateUser(user.value!!.apply { baseCurrency = currency })
 
-    fun goToAddExpenseScreen(view: View) {
-        val action = HomeFragmentDirections.actionHomeToAddExpense()
-        view.findNavController().navigate(action)
-    }
+    fun goToSettingsFragment(view: View) = HomeFragmentDirections.homeToSettings()
+        .run { view.findNavController().navigate(this) }
 
-    fun goToExpenseDetailScreen(view: View, expense: Expense) {
-        val action = HomeFragmentDirections.actionHomeToExpenseDetail(expense)
-        view.findNavController().navigate(action)
-    }
-
-    fun goToSettingsScreen(view: View) {
-        val action = HomeFragmentDirections.actionHomeToProfileSettings()
-        view.findNavController().navigate(action)
-    }
+    fun goToAddExpenseFragment(view: View) = HomeFragmentDirections.homeToAddExpense()
+        .run { view.findNavController().navigate(this) }
 }

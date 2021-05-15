@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="callback"
-            type="dev.sertan.android.harcamatakip.view.ui.OnboardingFragment.Callback" />
+            name="viewModel"
+            type="dev.sertan.android.harcamatakip.viewmodel.OnboardingViewModel" />
+
     </data>
 
     <RelativeLayout
@@ -17,27 +18,29 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            app:pagerEndButton="@{skip}"
+            app:tabLayout="@{tabLayout}" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/skip"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/size_small" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/skip"
             style="@style/Widget.App.Button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/size"
-            android:onClick="@{() -> callback.goToHomeFragment()}"
-            android:text="@string/skip"
-            android:visibility="invisible"
-            tools:visibility="visible" />
+            android:layout_marginEnd="@dimen/size"
+            android:layout_marginBottom="@dimen/size"
+            android:onClick="@{(view) -> viewModel.goToHomeFragment(view)}"
+            android:text="@string/skip" />
     </RelativeLayout>
 
 </layout>

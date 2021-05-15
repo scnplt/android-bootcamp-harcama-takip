@@ -9,16 +9,14 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "expense_table")
 data class Expense(
     var desc: String = "",
-    var amount: Double = 0.0,
+    var cost: Double = 0.0,
     var category: SpendCategory = SpendCategory.OTHER,
     var currency: Currency = Currency.LIRA,
-    @PrimaryKey(autoGenerate = true)
-    val uid: Int = 0
+    @PrimaryKey(autoGenerate = true) val uid: Int = 0
 ) : Parcelable {
-    fun amountConvert(exchangeRate: ExchangeRate?, to: Currency?): Double {
-        if (exchangeRate == null || to == null) return 0.0
-        val baseCurrencyRate = exchangeRate.data[currency.code] ?: 1.0
-        val targetCurrencyRate = exchangeRate.data[to.code] ?: 1.0
-        return amount * targetCurrencyRate / baseCurrencyRate
+    fun costConvert(exchangeRate: ExchangeRate?, to: Currency?): Double {
+        val baseCurrencyRate = exchangeRate?.data?.get(currency.code) ?: 1.0
+        val targetCurrencyRate = exchangeRate?.data?.get(to?.code) ?: 1.0
+        return cost * targetCurrencyRate / baseCurrencyRate
     }
 }
