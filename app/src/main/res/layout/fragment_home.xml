@@ -12,28 +12,30 @@
             type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
     </data>
 
-    <RelativeLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true">
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            app:elevation="0dp">
 
-            <LinearLayout
+            <!-- Info -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/info"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="true"
-                android:orientation="vertical"
-                android:padding="@dimen/size">
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> viewModel.goToSettingsFragment(view)}"
+                app:cardElevation="@dimen/size_small"
+                app:cardUseCompatPadding="true"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-                <!-- Info Card -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_home_card_info"
-                    android:onClick="@{viewModel::goToSettingsScreen}"
+                    android:background="@drawable/bg_info_card"
                     android:paddingHorizontal="@dimen/size"
                     android:paddingVertical="@dimen/size_large">
 
@@ -92,77 +94,87 @@
                         app:layout_constraintStart_toEndOf="@id/name"
                         app:layout_constraintTop_toBottomOf="@id/spending"
                         tools:text="₺9080" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Currencies -->
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/size"
-                    android:scrollbars="none">
+            </com.google.android.material.card.MaterialCardView>
 
-                    <com.google.android.material.chip.ChipGroup
+            <!-- Currencies -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:selectionRequired="true"
-                        app:singleLine="true"
-                        app:singleSelection="true">
+                        android:checked="@{viewModel.user.baseCurrency == Currency.LIRA}"
+                        android:onClick="@{() -> viewModel.updateCurrency(Currency.LIRA)}"
+                        android:text="@string/lira" />
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.baseCurrency == Currency.LIRA}"
-                            android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
-                            android:text="@string/lira" />
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{viewModel.user.baseCurrency == Currency.POUND}"
+                        android:onClick="@{() -> viewModel.updateCurrency(Currency.POUND)}"
+                        android:text="@string/pound" />
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.baseCurrency == Currency.POUND}"
-                            android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
-                            android:text="@string/pound" />
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{viewModel.user.baseCurrency == Currency.EURO}"
+                        android:onClick="@{() -> viewModel.updateCurrency(Currency.EURO)}"
+                        android:text="@string/euro" />
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.baseCurrency == Currency.EURO}"
-                            android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
-                            android:text="@string/euro" />
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@{viewModel.user.baseCurrency == Currency.DOLLAR}"
+                        android:onClick="@{() -> viewModel.updateCurrency(Currency.DOLLAR)}"
+                        android:text="@string/dollar" />
+                </com.google.android.material.chip.ChipGroup>
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="@{viewModel.user.baseCurrency == Currency.DOLLAR}"
-                            android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
-                            android:text="@string/dollar" />
+            </HorizontalScrollView>
 
-                    </com.google.android.material.chip.ChipGroup>
+        </com.google.android.material.appbar.AppBarLayout>
 
-                </HorizontalScrollView>
+        <!-- Expenses -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expenses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:currency="@{viewModel.user.baseCurrency}"
+            app:exchangeRate="@{viewModel.exchangeRate}"
+            app:expenses="@{viewModel.expenses}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:layout_dodgeInsetEdges="top"
+            app:reverseLayout="true"
+            app:stackFromEnd="true" />
 
-                <!-- Expenses -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/expenses"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-        <!-- Add expense -->
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.App.Button"
+        <!-- Add -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/size"
-            android:layout_marginBottom="@dimen/size_large"
-            android:onClick="@{viewModel::goToAddExpenseScreen}"
-            android:text="@string/add" />
-
-    </RelativeLayout>
+            android:layout_marginBottom="@dimen/size"
+            android:contentDescription="@string/add"
+            android:onClick="@{(view) -> viewModel.goToAddExpenseFragment(view)}"
+            app:backgroundTint="@color/secondary_dark_color"
+            app:layout_anchor="@id/expenses"
+            app:layout_anchorGravity="bottom|end"
+            app:maxImageSize="@dimen/size_large"
+            app:srcCompat="@drawable/ic_add"
+            app:tint="@color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

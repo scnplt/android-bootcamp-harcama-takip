@@ -4,34 +4,38 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.data.model.Currency
 import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.data.model.SpendCategory
 import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddExpenseViewModel @Inject constructor(
-    private val expenseRepo: ExpenseRepository
-) : ViewModel() {
+class AddExpsenseViewModel
+@Inject constructor(private val expenseRepo: ExpenseRepository) : ViewModel() {
 
-    private val _expense = MutableLiveData(Expense())
-    val expense: LiveData<Expense> get() = _expense
+    val expense: LiveData<Expense> = MutableLiveData(Expense())
 
-    fun selectCurrency(currency: Currency) {
+    fun isCurrency(currency: Currency) = currency == expense.value!!.currency
+
+    fun isCategory(category: SpendCategory) = category == expense.value!!.category
+
+    fun updateCurrency(currency: Currency) {
         expense.value!!.currency = currency
     }
 
-    fun selectType(category: SpendCategory) {
+    fun updateCategory(category: SpendCategory) {
         expense.value!!.category = category
     }
 
-    fun save(view: View) = viewModelScope.launch {
-        expenseRepo.add(expense.value!!)
+    fun saveExpense(view: View) {
+        if (expense.value!!.cost != 0.0)
+            CoroutineScope(Dispatchers.IO).launch { expenseRepo.add(expense.value!!) }
         view.findNavController().popBackStack()
     }
 }

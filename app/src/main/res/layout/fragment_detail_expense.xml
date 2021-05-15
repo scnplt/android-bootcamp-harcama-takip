@@ -8,19 +8,24 @@
         <variable
             name="viewModel"
             type="dev.sertan.android.harcamatakip.viewmodel.ExpenseDetailViewModel" />
+
+        <variable
+            name="expense"
+            type="dev.sertan.android.harcamatakip.data.model.Expense" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/size">
 
-        <!-- Expense icon -->
+        <!-- Category icon -->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icon"
             android:layout_width="@dimen/expense_detail_icon"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/size_large"
-            app:categoryIcon="@{viewModel.expense.category}"
+            app:categoryIcon="@{expense.category}"
             app:layout_constraintBottom_toTopOf="@id/desc"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,18 +40,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size_large"
-            android:text="@{viewModel.expense.desc.isEmpty() ? @string/default_desc : viewModel.expense.desc}"
             android:textAlignment="center"
             android:textSize="@dimen/text_large"
-            app:layout_constraintBottom_toTopOf="@id/amount"
+            app:defaultText="@{expense.desc}"
+            app:layout_constraintBottom_toTopOf="@id/cost"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/icon"
             tools:text="Elektrik" />
 
-        <!-- Expense amount -->
+        <!-- Cost -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/amount"
+            android:id="@+id/cost"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size_large"
@@ -55,26 +60,25 @@
             android:textStyle="bold"
             app:currency="@{viewModel.baseCurrency}"
             app:exchangeRate="@{viewModel.exchangeRates}"
-            app:expense="@{viewModel.expense}"
+            app:expense="@{expense}"
             app:layout_constraintBottom_toTopOf="@id/delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/desc"
-            tools:text="5 TL" />
+            tools:text="₺5" />
 
-        <!-- Delete expense -->
+        <!-- Delete -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete"
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{(v) -> viewModel.deleteExpense(v)}"
+            android:onClick="@{(view) -> viewModel.deleteExpense(view, expense)}"
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amount" />
-
+            app:layout_constraintTop_toBottomOf="@id/cost" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

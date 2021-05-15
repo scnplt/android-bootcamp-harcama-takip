@@ -1,8 +1,8 @@
-package dev.sertan.android.harcamatakip.view.binding
+package dev.sertan.android.harcamatakip.util
 
 import androidx.databinding.InverseMethod
 
-object Converters {
+object Converter {
     @JvmStatic
     @InverseMethod("doubleToString")
     fun stringToDouble(value: String?): Double = value?.toDoubleOrNull() ?: 0.0

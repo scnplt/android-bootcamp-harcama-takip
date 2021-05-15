@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="dev.sertan.android.harcamatakip.view.binding.Converters" />
+        <import type="dev.sertan.android.harcamatakip.util.Converter" />
 
         <import type="dev.sertan.android.harcamatakip.data.model.Currency" />
 
@@ -12,7 +12,7 @@
 
         <variable
             name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.AddExpenseViewModel" />
+            type="dev.sertan.android.harcamatakip.viewmodel.AddExpsenseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,12 +41,13 @@
             android:layout_marginTop="@dimen/size_large"
             android:hint="@string/desc"
             android:inputType="text"
+            android:maxLength="100"
             android:text="@={viewModel.expense.desc}"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <!-- Expense amount -->
+        <!-- Cost -->
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/expense"
             android:layout_width="0dp"
@@ -54,7 +55,8 @@
             android:layout_marginTop="@dimen/size"
             android:hint="@string/expense"
             android:inputType="numberDecimal"
-            android:text="@={Converters.doubleToString(viewModel.expense.amount)}"
+            android:maxLength="12"
+            android:text="@={Converter.doubleToString(viewModel.expense.cost)}"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/desc" />
@@ -62,17 +64,19 @@
         <!-- Currencies -->
         <HorizontalScrollView
             android:id="@+id/currencies"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size"
+            android:overScrollMode="ifContentScrolls"
             android:scrollbars="none"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/expense">
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 app:selectionRequired="true"
                 app:singleLine="true"
                 app:singleSelection="true">
@@ -80,36 +84,35 @@
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.expense.currency ==  Currency.LIRA}"
-                    android:onClick="@{() -> viewModel.selectCurrency(Currency.LIRA)}"
+                    android:checked="@{viewModel.isCurrency(Currency.LIRA)}"
+                    android:onClick="@{() -> viewModel.updateCurrency(Currency.LIRA)}"
                     android:text="@string/lira" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.expense.currency ==  Currency.EURO}"
-                    android:onClick="@{() -> viewModel.selectCurrency(Currency.EURO)}"
+                    android:checked="@{viewModel.isCurrency(Currency.EURO)}"
+                    android:onClick="@{() -> viewModel.updateCurrency(Currency.EURO)}"
                     android:text="@string/euro" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.expense.currency ==  Currency.DOLLAR}"
-                    android:onClick="@{() -> viewModel.selectCurrency(Currency.DOLLAR)}"
+                    android:checked="@{viewModel.isCurrency(Currency.DOLLAR)}"
+                    android:onClick="@{() -> viewModel.updateCurrency(Currency.DOLLAR)}"
                     android:text="@string/dollar" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.expense.currency ==  Currency.POUND}"
-                    android:onClick="@{() -> viewModel.selectCurrency(Currency.POUND)}"
+                    android:checked="@{viewModel.isCurrency(Currency.POUND)}"
+                    android:onClick="@{() -> viewModel.updateCurrency(Currency.POUND)}"
                     android:text="@string/pound" />
-
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
 
-        <!-- Expense categories -->
+        <!-- Categories -->
         <RadioGroup
             android:id="@+id/expense_type"
             android:layout_width="0dp"
@@ -123,48 +126,46 @@
                 android:id="@+id/shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.expense.category == SpendCategory.SHOP}"
-                android:onClick="@{() -> viewModel.selectType(SpendCategory.SHOP)}"
+                android:checked="@{viewModel.isCategory(SpendCategory.SHOP)}"
+                android:onClick="@{() -> viewModel.updateCategory(SpendCategory.SHOP)}"
                 android:text="@string/shop" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.expense.category == SpendCategory.RENT}"
-                android:onClick="@{() -> viewModel.selectType(SpendCategory.RENT)}"
+                android:checked="@{viewModel.isCategory(SpendCategory.RENT)}"
+                android:onClick="@{() -> viewModel.updateCategory(SpendCategory.RENT)}"
                 android:text="@string/rent" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/bill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.expense.category == SpendCategory.BILL}"
-                android:onClick="@{() -> viewModel.selectType(SpendCategory.BILL)}"
+                android:checked="@{viewModel.isCategory(SpendCategory.BILL)}"
+                android:onClick="@{() -> viewModel.updateCategory(SpendCategory.BILL)}"
                 android:text="@string/bill" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="@{viewModel.expense.category == SpendCategory.OTHER}"
-                android:onClick="@{() -> viewModel.selectType(SpendCategory.OTHER)}"
+                android:checked="@{viewModel.isCategory(SpendCategory.OTHER)}"
+                android:onClick="@{() -> viewModel.updateCategory(SpendCategory.OTHER)}"
                 android:text="@string/other" />
-
         </RadioGroup>
 
-        <!-- Add expense -->
+        <!-- Save -->
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/size"
             android:layout_marginBottom="@dimen/size_large"
-            android:onClick="@{(v) -> viewModel.save(v)}"
+            android:onClick="@{(view) -> viewModel.saveExpense(view)}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -1,5 +1,5 @@
 <resources>
-    <!-- Common -->
+    <!-- TODO düzenlenecek-->
     <string name="app_name">Harcama Takip</string>
 
     <string name="lira_with_symbol">₺%1$.2f</string>
@@ -8,6 +8,7 @@
     <string name="euro_with_symbol">€%1$.2f</string>
 
     <string name="skip">Geç</string>
+    <string name="default_desc">Açıklama yok.</string>
 
     <!-- Onboarding -->
     <string name="welcome">Karşınızda Harcama Takip Uygulaması</string>
@@ -54,7 +55,4 @@
 
     <!-- Expense Detail -->
     <string name="delete">Sil</string>
-
-    <!-- Expense Item -->
-    <string name="default_desc">Açıklama yok.</string>
 </resources>

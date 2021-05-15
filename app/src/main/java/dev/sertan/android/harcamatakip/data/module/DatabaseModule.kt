@@ -1,7 +1,6 @@
 package dev.sertan.android.harcamatakip.data.module
 
 import android.content.Context
-import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +15,5 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase =
-        Room.databaseBuilder(context, ExpenseDatabase::class.java, ExpenseDatabase::class.java.name)
-            .build()
+        ExpenseDatabase.create(context)
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:padding="@dimen/size">
 
-    <!-- Animation -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_animation"
         android:layout_width="@dimen/animation_large"
@@ -22,7 +21,6 @@
         app:lottie_loop="true"
         tools:src="@tools:sample/avatars" />
 
-    <!-- Title -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottie_animation" />
 
-    <!-- Description -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/desc"
         android:layout_width="wrap_content"
@@ -48,5 +45,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,16 +10,25 @@
             type="dev.sertan.android.harcamatakip.data.model.Expense" />
 
         <variable
-            name="viewModel"
-            type="dev.sertan.android.harcamatakip.viewmodel.HomeViewModel" />
+            name="exchangeRate"
+            type="dev.sertan.android.harcamatakip.data.model.ExchangeRate" />
+
+        <variable
+            name="currency"
+            type="dev.sertan.android.harcamatakip.data.model.Currency" />
+
+        <variable
+            name="callback"
+            type="dev.sertan.android.harcamatakip.view.adapter.ExpenseViewHolder.Callback" />
     </data>
 
+    <!-- TODO düzenlenecek-->
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/Widget.App.OutlinedItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/size_small"
-        android:onClick="@{(v) -> viewModel.goToExpenseDetailScreen(v, expense)}">
+        android:layout_margin="@dimen/size_small"
+        android:onClick="@{() -> callback.goToDetailsFragment()}">
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flow"
@@ -29,7 +38,7 @@
             app:flow_horizontalGap="@dimen/size"
             app:flow_horizontalStyle="spread_inside"
             app:flow_verticalGap="@dimen/size"
-            app:flow_wrapMode="aligned"
+            app:flow_wrapMode="chain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,10 +54,10 @@
             android:id="@+id/desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/size_small"
             android:maxLines="3"
-            android:text="@{expense.desc.length() == 0 ? @string/default_desc : expense.desc}"
+            android:textAlignment="center"
             android:textSize="@dimen/text"
+            app:defaultText="@{expense.desc}"
             tools:text="Elektrik" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -58,11 +67,10 @@
             android:singleLine="true"
             android:textSize="@dimen/text"
             android:textStyle="bold"
-            app:currency="@{viewModel.user.baseCurrency}"
-            app:exchangeRate="@{viewModel.exchangeRate}"
+            app:currency="@{currency}"
+            app:exchangeRate="@{exchangeRate}"
             app:expense="@{expense}"
             tools:text="₺60" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TODO düzenlenecek-->
     <color name="primary_color">#263238</color>
     <color name="primary_light_color">#4f5b62</color>
     <color name="primary_dark_color">#000a12</color>

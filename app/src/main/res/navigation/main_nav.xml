@@ -3,19 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav"
     app:startDestination="@id/splashFragment">
-
     <fragment
         android:id="@+id/splashFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.SplashFragment"
         android:label="SplashFragment">
         <action
-            android:id="@+id/action_splash_to_home"
-            app:destination="@id/homeFragment"
+            android:id="@+id/splash_to_onboarding"
+            app:destination="@id/onboardingFragment"
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splash_to_onboarding"
-            app:destination="@id/onboardingFragment"
+            android:id="@+id/splash_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/main_nav"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.OnboardingFragment"
+        android:label="OnboardingFragment">
+        <action
+            android:id="@+id/onboarding_to_home"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />
     </fragment>
@@ -24,39 +33,29 @@
         android:name="dev.sertan.android.harcamatakip.view.ui.HomeFragment"
         android:label="HomeFragment">
         <action
-            android:id="@+id/action_home_to_addExpense"
+            android:id="@+id/home_to_add_expense"
             app:destination="@id/addExpenseFragment" />
         <action
-            android:id="@+id/action_home_to_expenseDetail"
-            app:destination="@id/expenseDetailFragment" />
+            android:id="@+id/home_to_settings"
+            app:destination="@id/settingsFragment" />
         <action
-            android:id="@+id/action_home_to_profileSettings"
-            app:destination="@id/profileSettingsFragment" />
+            android:id="@+id/home_to_expense_detail"
+            app:destination="@id/expenseDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.AddExpenseFragment"
-        android:label="AddExpenseFragment" />
+        android:label="AddFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ui.SettingsFragment"
+        android:label="SettingsFragment" />
     <fragment
         android:id="@+id/expenseDetailFragment"
         android:name="dev.sertan.android.harcamatakip.view.ui.ExpenseDetailFragment"
-        android:label="ExpenseDetailFragment">
+        android:label="DetailFragment">
         <argument
             android:name="expense"
             app:argType="dev.sertan.android.harcamatakip.data.model.Expense" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileSettingsFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.SettingsFragment"
-        android:label="ProfileSettingsFragment" />
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.OnboardingFragment"
-        android:label="OnboardingFragment">
-        <action
-            android:id="@+id/action_onboarding_to_home"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/main_nav"
-            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
