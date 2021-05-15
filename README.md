@@ -6,7 +6,8 @@ Giderlerinizi farklı para birimleri üzerinden kolayca takip edebileceğiniz, b
 Bu ekranda toplam harcama tutarınızı ve eklediğiniz harcamaları, seçtiğiniz para birimine göre her 20 dakikada bir güncellenen kur ile hesaplanmış şekilde görebilirsiniz.</br>
 </br>
 <img src="https://raw.githubusercontent.com/scnplt/android-bootcamp-harcama-takip/master/screenshots/home_lira.png" width=200>
-<img src="https://raw.githubusercontent.com/scnplt/android-bootcamp-harcama-takip/master/screenshots/home_dolar.png" width=200>
+<img src="https://raw.githubusercontent.com/scnplt/android-bootcamp-harcama-takip/master/screenshots/home_euro.png" width=200>
+<img src="https://raw.githubusercontent.com/scnplt/android-bootcamp-harcama-takip/master/screenshots/home_pound.png" width=200>
 
 ### Ayarlar
 Ana ekranda en üst kısımda bulunan turuncu karta basarak ayarlar ekranına ulaşabilirsiniz. Bu ekranda isminizi ve cinsiyet bilginizi güncelleyebilirsiniz.</br>
