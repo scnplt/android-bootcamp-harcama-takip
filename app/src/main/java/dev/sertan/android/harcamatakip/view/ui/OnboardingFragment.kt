@@ -12,7 +12,6 @@ import dev.sertan.android.harcamatakip.viewmodel.OnboardingViewModel
 
 @AndroidEntryPoint
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
-
     private val viewModel: OnboardingViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

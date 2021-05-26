@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(private val userRepo: UserRepository) : ViewModel() {
-
     val user: LiveData<User> get() = userRepo.user
 
     fun isGender(gender: Gender) = gender == user.value!!.gender

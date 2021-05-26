@@ -1,25 +1,23 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- TODO düzenlenecek-->
-    <!-- Base application theme. -->
+<resources>
+
     <style name="Theme.HarcamaTakip" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary_light_color</item>
-        <item name="colorPrimaryVariant">@color/primary_dark_color</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondary_color</item>
-        <item name="colorSecondaryVariant">@color/secondary_dark_color</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Text -->
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
-        <!-- Chip -->
+        <!-- Color -->
+        <item name="colorPrimary">@color/indigo_100</item>
+        <item name="colorPrimaryVariant">@color/indigo_300</item>
+        <item name="colorOnPrimary">@color/indigo_900</item>
+
+        <item name="colorSecondary">@color/indigo_300</item>
+        <item name="colorOnSecondary">@color/indigo_900</item>
+
+        <item name="colorSurface">@color/indigo_900</item>
+        <item name="colorOnSurface">@color/indigo_200</item>
+
+        <item name="itemTextColor">@color/indigo_50</item>
+        <item name="android:textColor">@color/indigo_50</item>
+
+        <!-- Style -->
         <item name="chipStyle">@style/Widget.App.Chip</item>
-        <!-- EditText -->
-        <item name="editTextStyle">@style/Widget.App.EditText</item>
-        <!-- TabLayout -->
+        <item name="materialCardViewStyle">@style/Widget.App.MaterialCard</item>
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
     </style>
 </resources>

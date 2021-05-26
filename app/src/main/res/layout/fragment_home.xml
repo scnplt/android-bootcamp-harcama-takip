@@ -19,33 +19,28 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondary_color"
             app:elevation="0dp">
 
-            <!-- Info -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_m"
                 android:onClick="@{(view) -> viewModel.goToSettingsFragment(view)}"
-                app:cardElevation="@dimen/size_small"
-                app:cardUseCompatPadding="true"
-                app:layout_scrollFlags="scroll|enterAlways">
+                app:layout_scrollFlags="scroll|enterAlways|snap">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_info_card"
-                    android:paddingHorizontal="@dimen/size"
-                    android:paddingVertical="@dimen/size_large">
+                    android:paddingHorizontal="@dimen/normal_s"
+                    android:paddingVertical="@dimen/normal_m">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/hello"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/hello"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/home_text_card_info"
+                        android:textSize="@dimen/text_m"
                         app:layout_constraintBottom_toTopOf="@id/name"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -56,8 +51,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/home_text_card_info"
+                        android:textSize="@dimen/text_m"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/total_expense"
                         app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/your_spending"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/home_text_card_info"
+                        android:textSize="@dimen/text_m"
                         app:layout_constraintBottom_toTopOf="@id/total_expense"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -81,11 +74,8 @@
                         android:id="@+id/total_expense"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/size"
-                        android:singleLine="true"
                         android:textAlignment="textEnd"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/home_text_card_info"
+                        android:textSize="@dimen/text_m"
                         app:currency="@{viewModel.user.baseCurrency}"
                         app:exchangeRate="@{viewModel.exchangeRate}"
                         app:expenses="@{viewModel.expenses}"
@@ -98,7 +88,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Currencies -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,28 +105,28 @@
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="@{viewModel.user.baseCurrency == Currency.LIRA}"
+                        android:checked="@{viewModel.isCurrency(Currency.LIRA)}"
                         android:onClick="@{() -> viewModel.updateCurrency(Currency.LIRA)}"
                         android:text="@string/lira" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="@{viewModel.user.baseCurrency == Currency.POUND}"
+                        android:checked="@{viewModel.isCurrency(Currency.POUND)}"
                         android:onClick="@{() -> viewModel.updateCurrency(Currency.POUND)}"
                         android:text="@string/pound" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="@{viewModel.user.baseCurrency == Currency.EURO}"
+                        android:checked="@{viewModel.isCurrency(Currency.EURO)}"
                         android:onClick="@{() -> viewModel.updateCurrency(Currency.EURO)}"
                         android:text="@string/euro" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="@{viewModel.user.baseCurrency == Currency.DOLLAR}"
+                        android:checked="@{viewModel.isCurrency(Currency.DOLLAR)}"
                         android:onClick="@{() -> viewModel.updateCurrency(Currency.DOLLAR)}"
                         android:text="@string/dollar" />
                 </com.google.android.material.chip.ChipGroup>
@@ -146,12 +135,12 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Expenses -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/expenses"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:transitionGroup="true"
             app:currency="@{viewModel.user.baseCurrency}"
             app:exchangeRate="@{viewModel.exchangeRate}"
             app:expenses="@{viewModel.expenses}"
@@ -161,20 +150,16 @@
             app:reverseLayout="true"
             app:stackFromEnd="true" />
 
-        <!-- Add -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/size"
-            android:layout_marginBottom="@dimen/size"
+            android:layout_marginEnd="@dimen/normal_s"
+            android:layout_marginBottom="@dimen/normal_s"
             android:contentDescription="@string/add"
             android:onClick="@{(view) -> viewModel.goToAddExpenseFragment(view)}"
-            app:backgroundTint="@color/secondary_dark_color"
             app:layout_anchor="@id/expenses"
             app:layout_anchorGravity="bottom|end"
-            app:maxImageSize="@dimen/size_large"
-            app:srcCompat="@drawable/ic_add"
-            app:tint="@color/white" />
+            app:srcCompat="@drawable/ic_add" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

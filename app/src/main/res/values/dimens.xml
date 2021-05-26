@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TODO düzenlenecek-->
-    <dimen name="size">16dp</dimen>
-    <dimen name="size_large">32dp</dimen>
-    <dimen name="size_small">8dp</dimen>
+    <dimen name="small_m">8dp</dimen>
+    <dimen name="small_s">4dp</dimen>
 
-    <dimen name="title">45sp</dimen>
-    <dimen name="text">20sp</dimen>
-    <dimen name="text_small">17sp</dimen>
-    <dimen name="text_large">32sp</dimen>
+    <dimen name="normal_m">24dp</dimen>
+    <dimen name="normal_s">16dp</dimen>
 
-    <!-- Home -->
-    <dimen name="home_text_card_info">@dimen/text</dimen>
-    <dimen name="home_rc_item_icon">70dp</dimen>
+    <!-- Icon -->
+    <dimen name="icon_l">150dp</dimen>
+    <dimen name="icon_xl">200dp</dimen>
+    <dimen name="icon_s">50dp</dimen>
 
-    <!-- Expense detail -->
-    <dimen name="expense_detail_icon">100dp</dimen>
-
-    <!-- Other -->
-    <dimen name="animation_large">250dp</dimen>
-    <dimen name="stroke_width">3dp</dimen>
-    <dimen name="corner_radius">@dimen/size_small</dimen>
-    <dimen name="fab_text">@dimen/text</dimen>
-    <dimen name="fab_inset_vertical">0dp</dimen>
-    <dimen name="chip_padding">@dimen/size</dimen>
-    <dimen name="tab_dot_thickness">6dp</dimen>
+    <!-- Text -->
+    <dimen name="text_l">32sp</dimen>
+    <dimen name="text_m">24sp</dimen>
+    <dimen name="text_s">16sp</dimen>
 </resources>

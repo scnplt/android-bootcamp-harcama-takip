@@ -22,55 +22,59 @@
             type="dev.sertan.android.harcamatakip.view.adapter.ExpenseViewHolder.Callback" />
     </data>
 
-    <!-- TODO düzenlenecek-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/Widget.App.OutlinedItem"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/size_small"
-        android:onClick="@{() -> callback.goToDetailsFragment()}">
+        android:layout_margin="@dimen/small_m"
+        android:onClick="@{() -> callback.goToDetailsFragment()}"
+        android:transitionName="@{@string/transition_expense_item_card(expense.uid)}">
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/flow"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="icon,desc,amount"
-            app:flow_horizontalGap="@dimen/size"
-            app:flow_horizontalStyle="spread_inside"
-            app:flow_verticalGap="@dimen/size"
-            app:flow_wrapMode="chain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/small_m">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/icon"
-            android:layout_width="@dimen/home_rc_item_icon"
-            android:layout_height="@dimen/home_rc_item_icon"
-            app:categoryIcon="@{expense.category}"
-            tools:src="@tools:sample/avatars" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/icon_s"
+                android:layout_height="@dimen/icon_s"
+                app:categoryIcon="@{expense.category}"
+                tools:src="@tools:sample/avatars" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:textAlignment="center"
-            android:textSize="@dimen/text"
-            app:defaultText="@{expense.desc}"
-            tools:text="Elektrik" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_m"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textSize="@dimen/text"
-            android:textStyle="bold"
-            app:currency="@{currency}"
-            app:exchangeRate="@{exchangeRate}"
-            app:expense="@{expense}"
-            tools:text="₺60" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_s"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textSize="@dimen/text_s"
+                    app:defaultText="@{expense.desc}"
+                    tools:text="Elektrik" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_s"
+                    android:textStyle="bold"
+                    app:currency="@{currency}"
+                    app:exchangeRate="@{exchangeRate}"
+                    app:expense="@{expense}"
+                    tools:text="₺60" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

@@ -21,7 +21,6 @@ class HomeViewModel @Inject constructor(
     private val expenseRepo: ExpenseRepository,
     private val exchangeRateRepo: ExchangeRateRepository
 ) : ViewModel() {
-
     val user: LiveData<User> get() = userRepo.user
     val expenses: LiveData<List<Expense>> get() = expenseRepo.expenses
     val exchangeRate: LiveData<ExchangeRate> get() = exchangeRateRepo.exchangeRates

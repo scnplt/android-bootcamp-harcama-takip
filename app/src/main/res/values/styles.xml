@@ -1,52 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TODO düzenlenecek-->
-    <!-- Button -->
-    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">@color/primary_text_color</item>
-        <item name="android:textSize">@dimen/fab_text</item>
-        <item name="android:insetTop">@dimen/fab_inset_vertical</item>
-        <item name="android:insetBottom">@dimen/fab_inset_vertical</item>
-    </style>
-
     <!-- Chip -->
     <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:textColor">@color/primary_light_color</item>
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="checkedIconEnabled">false</item>
-        <item name="chipEndPadding">@dimen/chip_padding</item>
-        <item name="chipStartPadding">@dimen/chip_padding</item>
-        <item name="chipBackgroundColor">@drawable/color_chip</item>
-        <item name="chipStrokeColor">@color/primary_color</item>
-        <item name="chipStrokeWidth">@dimen/stroke_width</item>
-        <item name="closeIconEnabled">false</item>
-        <item name="closeIconVisible">false</item>
+        <item name="chipIconTint">?attr/colorOnPrimary</item>
+        <item name="chipBackgroundColor">@drawable/color_chip_choice</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textColor">@drawable/color_text_chip_choice</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipStrokeColor">?attr/itemTextColor</item>
     </style>
 
-    <!-- EditText -->
-    <style name="Widget.App.EditText" parent="Widget.AppCompat.EditText">
-        <item name="android:background">@drawable/bg_input_text</item>
-        <item name="android:padding">@dimen/size</item>
-        <item name="android:textColor">@color/secondary_dark_color</item>
-        <item name="android:textColorHint">@color/secondary_color</item>
-        <item name="android:textSize">@dimen/text</item>
+    <!-- Card -->
+    <style name="Widget.App.MaterialCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">4dp</item>
     </style>
 
-    <!-- Item -->
-    <style name="Widget.App.OutlinedItem" parent="Theme.HarcamaTakip">
-        <item name="android:background">@drawable/bg_list_item_outlined</item>
-        <item name="android:paddingTop">@dimen/size</item>
-        <item name="android:paddingBottom">@dimen/size</item>
-        <item name="android:paddingStart">@dimen/size_small</item>
-        <item name="android:paddingEnd">@dimen/size_small</item>
-    </style>
-
-    <!-- Tab Layout -->
+    <!-- TabLayout -->
     <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
-        <item name="tabBackground">@drawable/ic_tab_dot</item>
-        <item name="tabRippleColor">@android:color/transparent</item>
+        <item name="tabBackground">@drawable/ic_layout_tab</item>
+        <item name="tabIndicator">@null</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
     </style>
-
 </resources>

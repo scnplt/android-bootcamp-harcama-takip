@@ -13,17 +13,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/normal_s">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/size_large"
-            android:layout_marginTop="@dimen/size_large"
-            android:text="@string/profile_settings"
+            android:text="@string/settings"
             android:textAlignment="center"
-            android:textSize="@dimen/text_large"
+            android:textSize="@dimen/text_l"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,21 +31,23 @@
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_large"
             android:hint="@string/name"
             android:inputType="text"
             android:text="@={viewModel.user.name}"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintBottom_toTopOf="@id/gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
+            android:layout_marginTop="@dimen/small_m"
+            app:layout_constraintBottom_toTopOf="@id/save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -75,11 +76,9 @@
         </RadioGroup>
 
         <com.google.android.material.button.MaterialButton
-            style="@style/Widget.App.Button"
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/size"
-            android:layout_marginBottom="@dimen/size_large"
             android:onClick="@{(view) -> viewModel.updateUser(view)}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"

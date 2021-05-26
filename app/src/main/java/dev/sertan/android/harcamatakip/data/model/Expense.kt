@@ -13,10 +13,4 @@ data class Expense(
     var category: SpendCategory = SpendCategory.OTHER,
     var currency: Currency = Currency.LIRA,
     @PrimaryKey(autoGenerate = true) val uid: Int = 0
-) : Parcelable {
-    fun costConvert(exchangeRate: ExchangeRate?, to: Currency?): Double {
-        val baseCurrencyRate = exchangeRate?.data?.get(currency.code) ?: 1.0
-        val targetCurrencyRate = exchangeRate?.data?.get(to?.code) ?: 1.0
-        return cost * targetCurrencyRate / baseCurrencyRate
-    }
-}
+) : Parcelable

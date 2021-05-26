@@ -2,9 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:innerRadius="0dp"
     android:shape="ring"
-    android:thickness="@dimen/tab_dot_thickness"
+    android:thickness="@dimen/small_s"
     android:useLevel="false">
 
-    <solid android:color="@drawable/color_tab_dot" />
-
+    <solid android:color="@drawable/color_layout_tab" />
 </shape>

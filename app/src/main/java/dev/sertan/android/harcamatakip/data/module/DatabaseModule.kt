@@ -14,6 +14,6 @@ import javax.inject.Singleton
 object DatabaseModule {
     @Provides
     @Singleton
-    fun provideExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase =
+    fun getExpenseDatabase(@ApplicationContext context: Context): ExpenseDatabase =
         ExpenseDatabase.create(context)
 }

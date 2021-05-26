@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,15 +30,12 @@ class ExpenseAdapter @Inject constructor() :
             if (field != value) field = value.also { notifyDataSetChanged() }
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder =
-        DataBindingUtil
-            .inflate<ItemExpenseBinding>(
-                LayoutInflater.from(parent.context),
-                R.layout.item_expense,
-                parent,
-                false
-            )
-            .run { ExpenseViewHolder(this) }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = DataBindingUtil
+            .inflate<ItemExpenseBinding>(inflater, R.layout.item_expense, parent, false)
+        return ExpenseViewHolder(binding)
+    }
 
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) =
         holder.bind(getItem(position), currency, exchangeRate)
@@ -52,11 +50,13 @@ class ExpenseViewHolder(private val binding: ItemExpenseBinding) :
             this.currency = currency
             this.exchangeRate = exchangeRate
             callback = Callback {
-                HomeFragmentDirections.homeToExpenseDetail(expense)
-                    .run { root.findNavController().navigate(this) }
+                val transitionName =
+                    root.resources.getString(R.string.transition_expense_detail_card)
+                val action = HomeFragmentDirections.homeToExpenseDetail(expense)
+                val extras = FragmentNavigatorExtras(root to transitionName)
+                root.findNavController().navigate(action, extras)
             }
-        }
-        binding.executePendingBindings()
+        }.executePendingBindings()
     }
 
     fun interface Callback {
@@ -65,8 +65,6 @@ class ExpenseViewHolder(private val binding: ItemExpenseBinding) :
 }
 
 private class ExpenseDiffUtilCallback : DiffUtil.ItemCallback<Expense>() {
-
     override fun areItemsTheSame(old: Expense, new: Expense) = old.uid == new.uid
-
     override fun areContentsTheSame(old: Expense, new: Expense) = old == new
 }
