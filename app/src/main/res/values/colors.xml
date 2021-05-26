@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TODO düzenlenecek-->
-    <color name="primary_color">#263238</color>
-    <color name="primary_light_color">#4f5b62</color>
-    <color name="primary_dark_color">#000a12</color>
-
-    <color name="secondary_color">#F7B733</color>
-    <color name="secondary_light_color">#ffeb3b</color>
-    <color name="secondary_dark_color">#FC4D1B</color>
-
-    <color name="primary_text_color">@color/white</color>
-    <color name="secondary_text_color">@color/black</color>
-
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Indigo -->
+    <color name="indigo_50">#e8eaf6</color>
+    <color name="indigo_100">#c5cae9</color>
+    <color name="indigo_200">#9fa8da</color>
+    <color name="indigo_300">#7987cb</color>
+    <color name="indigo_900">#111A67</color>
 </resources>

@@ -23,7 +23,6 @@ class ExpenseDetailViewModel
     private val exchangeRateRepo: ExchangeRateRepository,
     userRepo: UserRepository
 ) : ViewModel() {
-
     val exchangeRates: LiveData<ExchangeRate> get() = exchangeRateRepo.exchangeRates
     val baseCurrency: Currency = userRepo.user.value!!.baseCurrency
 

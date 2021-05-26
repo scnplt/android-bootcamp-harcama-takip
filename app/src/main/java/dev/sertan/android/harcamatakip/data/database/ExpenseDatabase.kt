@@ -11,10 +11,8 @@ abstract class ExpenseDatabase : RoomDatabase() {
     abstract fun expenseDAO(): ExpenseDao
 
     companion object {
-        fun create(context: Context): ExpenseDatabase = Room.databaseBuilder(
-            context,
-            ExpenseDatabase::class.java,
-            ExpenseDatabase::class.java.name
-        ).build()
+        fun create(context: Context): ExpenseDatabase = Room
+            .databaseBuilder(context, ExpenseDatabase::class.java, ExpenseDatabase::class.java.name)
+            .build()
     }
 }

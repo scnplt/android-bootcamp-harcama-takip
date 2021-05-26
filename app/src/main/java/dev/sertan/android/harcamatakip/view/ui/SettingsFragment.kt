@@ -11,7 +11,6 @@ import dev.sertan.android.harcamatakip.viewmodel.SettingsViewModel
 
 @AndroidEntryPoint
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
-
     private val viewModel: SettingsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

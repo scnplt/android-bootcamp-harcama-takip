@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 
-abstract class BaseSharedPreferences<T>(context: Context, private val dataClass: Class<T>) {
+class BaseSharedPreferences<T>(context: Context, private val dataClass: Class<T>) {
     private val key: String = dataClass.name
     private val defaultValue: T = dataClass.newInstance()
 
@@ -24,9 +24,9 @@ abstract class BaseSharedPreferences<T>(context: Context, private val dataClass:
         .apply { registerOnSharedPreferenceChangeListener(listener) }
 
     private val _data: MutableLiveData<T> = MutableLiveData(getDataFromSharedPref())
-    protected val data: LiveData<T> get() = _data
+    val data: LiveData<T> get() = _data
 
-    protected fun updateData(data: T) = sharedPreferences.edit()
+    fun updateData(data: T) = sharedPreferences.edit()
         .putString(key, toJson(data))
         .apply()
 

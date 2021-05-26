@@ -11,7 +11,6 @@ import dev.sertan.android.harcamatakip.viewmodel.AddExpsenseViewModel
 
 @AndroidEntryPoint
 class AddExpenseFragment : BaseFragment<FragmentExpenseAddBinding>(R.layout.fragment_expense_add) {
-
     private val viewModel: AddExpsenseViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -18,7 +18,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AddExpsenseViewModel
 @Inject constructor(private val expenseRepo: ExpenseRepository) : ViewModel() {
-
     val expense: LiveData<Expense> = MutableLiveData(Expense())
 
     fun isCurrency(currency: Currency) = currency == expense.value!!.currency
@@ -34,8 +33,9 @@ class AddExpsenseViewModel
     }
 
     fun saveExpense(view: View) {
-        if (expense.value!!.cost != 0.0)
+        if (expense.value!!.cost != 0.0) {
             CoroutineScope(Dispatchers.IO).launch { expenseRepo.add(expense.value!!) }
+        }
         view.findNavController().popBackStack()
     }
 }

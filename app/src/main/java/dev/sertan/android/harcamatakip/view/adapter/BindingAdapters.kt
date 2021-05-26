@@ -10,7 +10,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dev.sertan.android.harcamatakip.R
-import dev.sertan.android.harcamatakip.data.model.*
+import dev.sertan.android.harcamatakip.data.model.Currency
+import dev.sertan.android.harcamatakip.data.model.ExchangeRate
+import dev.sertan.android.harcamatakip.data.model.Expense
+import dev.sertan.android.harcamatakip.data.model.Gender
+import dev.sertan.android.harcamatakip.data.model.SpendCategory
+import dev.sertan.android.harcamatakip.data.model.User
+import dev.sertan.android.harcamatakip.util.calculateCost
 
 // Image View Adapters
 @BindingAdapter("categoryIcon")
@@ -21,7 +27,6 @@ fun bindCategoryIcon(view: ImageView, category: SpendCategory) {
         SpendCategory.SHOP -> R.drawable.ic_shop
         else -> R.drawable.ic_hand
     }
-
     view.setImageResource(icon)
 }
 
@@ -36,7 +41,6 @@ fun bindUserName(view: TextView, user: User) {
         Gender.WOMAN -> R.string.personal_title_woman
         else -> R.string.personal_title_unknown
     }
-
     view.text = view.resources.getString(personalTitle, name)
 }
 
@@ -48,22 +52,24 @@ fun bindCost(
     currency: Currency?,
     exchangeRate: ExchangeRate?
 ) {
-    val cost: Double = expense?.costConvert(exchangeRate, currency)
-        ?: (expenses?.sumOf { it.costConvert(exchangeRate, currency) } ?: 0.0)
+    val cost = if (expense != null) {
+        calculateCost(expense.cost, exchangeRate, expense.currency, currency)
+    } else {
+        expenses?.sumOf { calculateCost(it.cost, exchangeRate, it.currency, currency) } ?: 0.0
+    }
     val currencySymbol = when (currency) {
         Currency.EURO -> R.string.euro_with_symbol
         Currency.POUND -> R.string.pound_with_symbol
         Currency.DOLLAR -> R.string.dollar_with_symbol
         else -> R.string.lira_with_symbol
     }
-
     view.text = view.resources.getString(currencySymbol, cost)
 }
 
 @BindingAdapter("defaultText")
 fun bindDefaultText(view: TextView, text: String) {
     with(view) {
-        this.text = if (text.isBlank()) resources.getText(R.string.default_desc) else text
+        this.text = if (text.isBlank()) resources.getText(R.string.default_description) else text
     }
 }
 
@@ -84,12 +90,6 @@ fun bindExpenses(
     }
 }
 
-// View Adapters
-@BindingAdapter("isVisible")
-fun bindIsVisible(view: View, isVisible: Boolean?) = isVisible?.let {
-    view.visibility = if (it) View.VISIBLE else View.INVISIBLE
-}
-
 // View Pager 2 Adapters
 @BindingAdapter("tabLayout")
 fun bindTabLayout(viewPager: ViewPager2, tabLayout: TabLayout) =
@@ -100,9 +100,10 @@ fun bindButton(viewPager: ViewPager2, button: Button) {
     if (viewPager.adapter !is OnboardingPagerAdapter) return
 
     val pageSize = (viewPager.adapter as OnboardingPagerAdapter).itemCount
-    viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+    val pageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             button.visibility = if (position == pageSize - 1) View.VISIBLE else View.INVISIBLE
         }
-    })
+    }
+    viewPager.registerOnPageChangeCallback(pageChangeCallback)
 }

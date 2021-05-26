@@ -12,7 +12,9 @@ import javax.inject.Inject
 class OnboardingViewModel
 @Inject constructor(private val openingStatusSharedPref: OpeningStatusSharedPref) : ViewModel() {
 
-    fun goToHomeFragment(view: View) = OnboardingFragmentDirections.onboardingToHome()
-        .run { view.findNavController().navigate(this) }
-        .also { openingStatusSharedPref.changeToOpened() }
+    fun goToHomeFragment(view: View) {
+        openingStatusSharedPref.changeToOpened()
+        OnboardingFragmentDirections.onboardingToHome()
+            .run { view.findNavController().navigate(this) }
+    }
 }

@@ -23,7 +23,7 @@ class TestExchangeRateService {
     fun setup() = hiltRule.inject()
 
     @Test
-    fun isResponseOfGetMethodSuccessful() = runBlocking {
+    fun isResponseSuccessful() = runBlocking {
         val response = service.get()
         Truth.assertThat(response.isSuccessful).isTrue()
     }

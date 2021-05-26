@@ -13,5 +13,5 @@ import javax.inject.Singleton
 object DaoModule {
     @Provides
     @Singleton
-    fun provideExpenseDao(db: ExpenseDatabase): ExpenseDao = db.expenseDAO()
+    fun getExpenseDao(db: ExpenseDatabase): ExpenseDao = db.expenseDAO()
 }

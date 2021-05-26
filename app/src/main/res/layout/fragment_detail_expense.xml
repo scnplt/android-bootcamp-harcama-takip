@@ -14,71 +14,60 @@
             type="dev.sertan.android.harcamatakip.data.model.Expense" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/size">
+        android:layout_margin="@dimen/small_m"
+        android:transitionName="@string/transition_expense_detail_card">
 
-        <!-- Category icon -->
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/icon"
-            android:layout_width="@dimen/expense_detail_icon"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/size_large"
-            app:categoryIcon="@{expense.category}"
-            app:layout_constraintBottom_toTopOf="@id/desc"
-            app:layout_constraintDimensionRatio="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:src="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <!-- Description -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/size_large"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_large"
-            app:defaultText="@{expense.desc}"
-            app:layout_constraintBottom_toTopOf="@id/cost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon"
-            tools:text="Elektrik" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/icon_l"
+                android:layout_height="@dimen/icon_l"
+                android:layout_marginBottom="@dimen/small_m"
+                app:categoryIcon="@{expense.category}"
+                tools:src="@tools:sample/avatars" />
 
-        <!-- Cost -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/cost"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/size_large"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_large"
-            android:textStyle="bold"
-            app:currency="@{viewModel.baseCurrency}"
-            app:exchangeRate="@{viewModel.exchangeRates}"
-            app:expense="@{expense}"
-            app:layout_constraintBottom_toTopOf="@id/delete"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/desc"
-            tools:text="₺5" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_m"
+                android:layout_marginBottom="@dimen/small_m"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_l"
+                app:defaultText="@{expense.desc}"
+                tools:text="Elektrik" />
 
-        <!-- Delete -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/delete"
-            style="@style/Widget.App.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{(view) -> viewModel.deleteExpense(view, expense)}"
-            android:text="@string/delete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cost" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_m"
+                android:layout_marginBottom="@dimen/normal_m"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_l"
+                android:textStyle="bold"
+                app:currency="@{viewModel.baseCurrency}"
+                app:exchangeRate="@{viewModel.exchangeRates}"
+                app:expense="@{expense}"
+                tools:text="₺5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> viewModel.deleteExpense(view, expense)}"
+                android:text="@string/delete" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

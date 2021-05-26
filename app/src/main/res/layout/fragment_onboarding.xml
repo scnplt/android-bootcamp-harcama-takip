@@ -28,17 +28,16 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/skip"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/size_small" />
+            android:layout_marginBottom="@dimen/small_m" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/skip"
-            style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="@dimen/size"
-            android:layout_marginBottom="@dimen/size"
+            android:layout_marginEnd="@dimen/small_m"
+            android:layout_marginBottom="@dimen/small_m"
             android:onClick="@{(view) -> viewModel.goToHomeFragment(view)}"
             android:text="@string/skip" />
     </RelativeLayout>

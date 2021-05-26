@@ -9,6 +9,5 @@ object Converter {
 
     @JvmStatic
     fun doubleToString(value: Double?): String =
-        if (value == 0.0 || value == null) ""
-        else value.toString()
+        if (value == 0.0 || value == null) "" else value.toString()
 }

@@ -12,5 +12,5 @@ import javax.inject.Singleton
 object ApiModule {
     @Provides
     @Singleton
-    fun provideExchangeRateService(): ExchangeRateService = ExchangeRateService.create()
+    fun getExchangeRateService(): ExchangeRateService = ExchangeRateService.create()
 }
