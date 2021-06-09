@@ -16,7 +16,6 @@ import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.data.model.Gender
 import dev.sertan.android.harcamatakip.data.model.SpendCategory
 import dev.sertan.android.harcamatakip.data.model.User
-import dev.sertan.android.harcamatakip.util.calculateCost
 
 // Image View Adapters
 @BindingAdapter("categoryIcon")
@@ -66,10 +65,21 @@ fun bindCost(
     view.text = view.resources.getString(currencySymbol, cost)
 }
 
+private fun calculateCost(
+    value: Double = 0.0,
+    exchangeRate: ExchangeRate?,
+    from: Currency?,
+    to: Currency?
+): Double {
+    val baseCurrencyRate = exchangeRate?.data?.get(from?.code) ?: 1.0
+    val targetCurrencyRate = exchangeRate?.data?.get(to?.code) ?: 1.0
+    return value * targetCurrencyRate / baseCurrencyRate
+}
+
 @BindingAdapter("defaultText")
-fun bindDefaultText(view: TextView, text: String) {
+fun bindDefaultText(view: TextView, mText: String) {
     with(view) {
-        this.text = if (text.isBlank()) resources.getText(R.string.default_description) else text
+        text = if (mText.isBlank()) resources.getText(R.string.default_description) else mText
     }
 }
 
@@ -78,15 +88,15 @@ fun bindDefaultText(view: TextView, text: String) {
 fun bindExpenses(
     view: RecyclerView,
     expenses: List<Expense>?,
-    currency: Currency?,
-    exchangeRate: ExchangeRate?
+    mCurrency: Currency?,
+    mExchangeRate: ExchangeRate?
 ) {
     if (view.adapter !is ExpenseAdapter) return
 
     with(view.adapter as ExpenseAdapter) {
         submitList(expenses)
-        this.currency = currency
-        this.exchangeRate = exchangeRate
+        currency = mCurrency
+        exchangeRate = mExchangeRate
     }
 }
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.data.sharedpreferences.OpeningStatusSharedPref
-import dev.sertan.android.harcamatakip.view.ui.OnboardingFragmentDirections
+import dev.sertan.android.harcamatakip.view.OnboardingFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
@@ -13,8 +13,9 @@ class OnboardingViewModel
 @Inject constructor(private val openingStatusSharedPref: OpeningStatusSharedPref) : ViewModel() {
 
     fun goToHomeFragment(view: View) {
+        view.isEnabled = false
         openingStatusSharedPref.changeToOpened()
         OnboardingFragmentDirections.onboardingToHome()
-            .run { view.findNavController().navigate(this) }
+            .let { view.findNavController().navigate(it) }
     }
 }

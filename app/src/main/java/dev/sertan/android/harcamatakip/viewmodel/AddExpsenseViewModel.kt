@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.data.model.Currency
 import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.data.model.SpendCategory
-import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
+import dev.sertan.android.harcamatakip.data.repository.ExpenseRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddExpsenseViewModel
-@Inject constructor(private val expenseRepo: ExpenseRepository) : ViewModel() {
+@Inject constructor(private val expenseRepo: ExpenseRepo) : ViewModel() {
     val expense: LiveData<Expense> = MutableLiveData(Expense())
 
     fun isCurrency(currency: Currency) = currency == expense.value!!.currency

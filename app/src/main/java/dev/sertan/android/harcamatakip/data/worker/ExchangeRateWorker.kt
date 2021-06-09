@@ -12,14 +12,14 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepository
+import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepo
 import java.util.concurrent.TimeUnit
 
 @HiltWorker
 class ExchangeRateWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted params: WorkerParameters,
-    private val repo: ExchangeRateRepository
+    private val repo: ExchangeRateRepo
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result =

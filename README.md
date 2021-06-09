@@ -1,5 +1,4 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/47dc3cca555b43cbb8d8c1a5bfda8eb3)](https://www.codacy.com/gh/scnplt/android-bootcamp-harcama-takip/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=scnplt/android-bootcamp-harcama-takip&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://app.bitrise.io/app/f3aeb74bfbc66910/status.svg?token=F_Cv4ZGFYpiqdzVhRTRjWA)](https://app.bitrise.io/app/f3aeb74bfbc66910)
 
 
 # Harcama Takip
@@ -18,7 +17,7 @@ Bu ekranda toplam harcama tutarınızı ve eklediğiniz harcamaları, seçtiğin
 
 
 ### Ayarlar
-Ana ekranda en üst kısımda bulunan turuncu karta basarak ayarlar ekranına ulaşabilirsiniz. Bu ekranda isminizi ve cinsiyet bilginizi güncelleyebilirsiniz.</br>
+Ana ekranda en üst kısımda bulunan karta (isminizi ve toplam harcama tutarınızı içeren) basarak ayarlar ekranına ulaşabilirsiniz. Bu ekranda isminizi ve cinsiyet bilginizi güncelleyebilirsiniz.</br>
 </br>
 
 <img src="https://raw.githubusercontent.com/scnplt/android-bootcamp-harcama-takip/master/screenshots/settings.png" width=200>
@@ -47,7 +46,7 @@ Ana ekranda bulunan ekle butonu ile bu ekrana gidebilir ve seçtiğiniz para bir
 * [Room](https://developer.android.com/training/data-storage/room?hl=en)
 * [Navigation](https://developer.android.com/guide/navigation?hl=en)
 * [Retrofit](https://square.github.io/retrofit/)
-* [Gson](https://github.com/google/gson)
+* [Moshi](https://github.com/square/moshi)
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Lottie](https://github.com/airbnb/lottie-android)
 * [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)

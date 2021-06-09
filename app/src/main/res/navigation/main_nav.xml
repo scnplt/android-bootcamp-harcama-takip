@@ -5,7 +5,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.SplashFragment"
+        android:name="dev.sertan.android.harcamatakip.view.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/splash_to_onboarding"
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.OnboardingFragment"
+        android:name="dev.sertan.android.harcamatakip.view.OnboardingFragment"
         android:label="OnboardingFragment">
         <action
             android:id="@+id/onboarding_to_home"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.HomeFragment"
+        android:name="dev.sertan.android.harcamatakip.view.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/home_to_add_expense"
@@ -44,15 +44,15 @@
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.AddExpenseFragment"
+        android:name="dev.sertan.android.harcamatakip.view.AddExpenseFragment"
         android:label="AddFragment" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.SettingsFragment"
+        android:name="dev.sertan.android.harcamatakip.view.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/expenseDetailFragment"
-        android:name="dev.sertan.android.harcamatakip.view.ui.ExpenseDetailFragment"
+        android:name="dev.sertan.android.harcamatakip.view.ExpenseDetailFragment"
         android:label="DetailFragment">
         <argument
             android:name="expense"

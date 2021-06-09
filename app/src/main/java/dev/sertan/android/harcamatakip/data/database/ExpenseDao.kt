@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ExpenseDao {
+
     @Query("SELECT * FROM expense_table")
     fun getAllExpenses(): Flow<List<Expense>>
 

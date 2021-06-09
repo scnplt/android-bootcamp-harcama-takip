@@ -4,6 +4,7 @@ import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import dev.sertan.android.harcamatakip.FakeExpenseDatabase
 import dev.sertan.android.harcamatakip.data.model.Expense
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -19,6 +20,7 @@ class TestExpenseDatabase {
     val hiltRule = HiltAndroidRule(this)
 
     @Inject
+    @FakeExpenseDatabase
     lateinit var db: ExpenseDatabase
 
     @Before
@@ -29,7 +31,7 @@ class TestExpenseDatabase {
 
     @Test
     fun isDatabaseOpen() = runBlocking {
-        db.expenseDAO().insert(Expense())
+        db.expenseDao().insert(Expense())
         Truth.assertThat(db.isOpen).isTrue()
     }
 }

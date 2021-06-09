@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui
+package dev.sertan.android.harcamatakip.view
 
 import android.os.Bundle
 import android.view.View
@@ -8,13 +8,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.harcamatakip.R
 import dev.sertan.android.harcamatakip.databinding.FragmentHomeBinding
 import dev.sertan.android.harcamatakip.view.adapter.ExpenseAdapter
-import dev.sertan.android.harcamatakip.view.ui.base.BaseFragment
+import dev.sertan.android.harcamatakip.view.base.BaseFragment
 import dev.sertan.android.harcamatakip.viewmodel.HomeViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
-
     @Inject
     lateinit var adapter: ExpenseAdapter
     private val homeViewModel: HomeViewModel by viewModels()

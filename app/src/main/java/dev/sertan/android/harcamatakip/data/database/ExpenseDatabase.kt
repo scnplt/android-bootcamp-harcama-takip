@@ -8,11 +8,13 @@ import dev.sertan.android.harcamatakip.data.model.Expense
 
 @Database(entities = [Expense::class], version = 1, exportSchema = false)
 abstract class ExpenseDatabase : RoomDatabase() {
-    abstract fun expenseDAO(): ExpenseDao
+
+    abstract fun expenseDao(): ExpenseDao
 
     companion object {
-        fun create(context: Context): ExpenseDatabase = Room
-            .databaseBuilder(context, ExpenseDatabase::class.java, ExpenseDatabase::class.java.name)
-            .build()
+        fun create(context: Context): ExpenseDatabase {
+            val dataClass = ExpenseDatabase::class.java
+            return Room.databaseBuilder(context, dataClass, dataClass.name).build()
+        }
     }
 }

@@ -1,4 +1,4 @@
-package dev.sertan.android.harcamatakip.view.ui
+package dev.sertan.android.harcamatakip.view
 
 import androidx.fragment.app.Fragment
 import dev.sertan.android.harcamatakip.R

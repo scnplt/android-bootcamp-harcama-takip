@@ -9,17 +9,17 @@ import dev.sertan.android.harcamatakip.data.model.Currency
 import dev.sertan.android.harcamatakip.data.model.ExchangeRate
 import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.data.model.User
-import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepository
-import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
-import dev.sertan.android.harcamatakip.data.repository.UserRepository
-import dev.sertan.android.harcamatakip.view.ui.HomeFragmentDirections
+import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepo
+import dev.sertan.android.harcamatakip.data.repository.ExpenseRepo
+import dev.sertan.android.harcamatakip.data.repository.UserRepo
+import dev.sertan.android.harcamatakip.view.HomeFragmentDirections
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val userRepo: UserRepository,
-    private val expenseRepo: ExpenseRepository,
-    private val exchangeRateRepo: ExchangeRateRepository
+    private val userRepo: UserRepo,
+    private val expenseRepo: ExpenseRepo,
+    private val exchangeRateRepo: ExchangeRateRepo
 ) : ViewModel() {
     val user: LiveData<User> get() = userRepo.user
     val expenses: LiveData<List<Expense>> get() = expenseRepo.expenses
@@ -31,8 +31,8 @@ class HomeViewModel @Inject constructor(
         userRepo.updateUser(user.value!!.apply { baseCurrency = currency })
 
     fun goToSettingsFragment(view: View) = HomeFragmentDirections.homeToSettings()
-        .run { view.findNavController().navigate(this) }
+        .let { view.findNavController().navigate(it) }
 
     fun goToAddExpenseFragment(view: View) = HomeFragmentDirections.homeToAddExpense()
-        .run { view.findNavController().navigate(this) }
+        .let { view.findNavController().navigate(it) }
 }

@@ -1,5 +1,6 @@
-package dev.sertan.android.harcamatakip.view.ui
+package dev.sertan.android.harcamatakip.view
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -18,18 +19,25 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     @Inject
     lateinit var openingStatus: OpeningStatusSharedPref
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        fullscreenMode()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Runnable {
-            val action = with(SplashFragmentDirections) {
-                if (openingStatus.isFirst()) splashToOnboarding() else splashToHome()
+            val action = if (openingStatus.isFirst()) {
+                SplashFragmentDirections.splashToOnboarding()
+            } else {
+                SplashFragmentDirections.splashToHome()
             }
             findNavController().navigate(action)
-        }.apply { Handler(Looper.getMainLooper()).postDelayed(this, SKIP_DURATION) }
+        }.let { Handler(Looper.getMainLooper()).postDelayed(it, SKIP_DURATION) }
     }
 
     override fun onDetach() {
-        requireActivity().fullscreenMode(false)
+        fullscreenMode(false)
         super.onDetach()
     }
 
