@@ -7,14 +7,14 @@ import androidx.navigation.findNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.data.model.Gender
 import dev.sertan.android.harcamatakip.data.model.User
-import dev.sertan.android.harcamatakip.data.repository.UserRepository
+import dev.sertan.android.harcamatakip.data.repository.UserRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SettingsViewModel @Inject constructor(private val userRepo: UserRepository) : ViewModel() {
+class SettingsViewModel @Inject constructor(private val userRepo: UserRepo) : ViewModel() {
     val user: LiveData<User> get() = userRepo.user
 
     fun isGender(gender: Gender) = gender == user.value!!.gender

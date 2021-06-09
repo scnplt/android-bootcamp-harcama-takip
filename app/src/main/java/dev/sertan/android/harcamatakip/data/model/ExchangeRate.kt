@@ -1,8 +1,10 @@
 package dev.sertan.android.harcamatakip.data.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class ExchangeRate(
-    @SerializedName("rates")
+    @Json(name = "rates")
     val data: Map<String, Double> = mapOf()
 )

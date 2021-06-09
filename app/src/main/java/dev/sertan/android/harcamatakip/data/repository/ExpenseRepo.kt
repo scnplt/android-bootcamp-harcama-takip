@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ExpenseRepository @Inject constructor(private val dao: ExpenseDao) {
+class ExpenseRepo @Inject constructor(private val dao: ExpenseDao) {
     val expenses: LiveData<List<Expense>> = dao.getAllExpenses().asLiveData()
 
     suspend fun add(expense: Expense) = dao.insert(expense)

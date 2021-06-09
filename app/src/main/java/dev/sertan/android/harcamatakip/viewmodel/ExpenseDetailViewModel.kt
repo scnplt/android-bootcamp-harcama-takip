@@ -8,9 +8,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.sertan.android.harcamatakip.data.model.Currency
 import dev.sertan.android.harcamatakip.data.model.ExchangeRate
 import dev.sertan.android.harcamatakip.data.model.Expense
-import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepository
-import dev.sertan.android.harcamatakip.data.repository.ExpenseRepository
-import dev.sertan.android.harcamatakip.data.repository.UserRepository
+import dev.sertan.android.harcamatakip.data.repository.ExchangeRateRepo
+import dev.sertan.android.harcamatakip.data.repository.ExpenseRepo
+import dev.sertan.android.harcamatakip.data.repository.UserRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,9 +19,9 @@ import javax.inject.Inject
 @HiltViewModel
 class ExpenseDetailViewModel
 @Inject constructor(
-    private val expenseRepo: ExpenseRepository,
-    private val exchangeRateRepo: ExchangeRateRepository,
-    userRepo: UserRepository
+    private val expenseRepo: ExpenseRepo,
+    private val exchangeRateRepo: ExchangeRateRepo,
+    userRepo: UserRepo
 ) : ViewModel() {
     val exchangeRates: LiveData<ExchangeRate> get() = exchangeRateRepo.exchangeRates
     val baseCurrency: Currency = userRepo.user.value!!.baseCurrency

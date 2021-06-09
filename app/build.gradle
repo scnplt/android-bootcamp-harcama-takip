@@ -9,16 +9,16 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "dev.sertan.android.harcamatakip"
+        applicationId 'dev.sertan.android.harcamatakip'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 110
-        versionName "1.1.0"
+        versionCode 1
+        versionName '1.0.0'
 
-        testInstrumentationRunner "dev.sertan.android.harcamatakip.HiltTestRunner"
+        testInstrumentationRunner 'dev.sertan.android.harcamatakip.HiltTestRunner'
     }
 
     buildTypes {
@@ -43,51 +43,64 @@ android {
 }
 
 dependencies {
+    def core_ktx_version = '1.5.0'
+    def appcompat_version = '1.3.0'
+    def material_version = '1.3.0'
+    def lottie_version = '3.7.0'
+    def room_version = '2.3.0'
+    def retrofit_version = '2.9.0'
+    def livedata_version = '2.3.1'
+    def androidx_hilt_version = '1.0.0'
+    def work_version = '2.5.0'
+    def junit_version = '4.13.2'
+    def ext_junit_version = '1.1.2'
+    def truth_version = '1.1.3'
+    def espresso_version = '3.3.0'
+    def moshi_version = '1.12.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation "androidx.core:core-ktx:$core_ktx_version"
 
     // UI
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+    // Hilt
+    kapt "androidx.hilt:hilt-compiler:$androidx_hilt_version"
+    implementation "androidx.hilt:hilt-work:$androidx_hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$google_hilt_version"
+    implementation "com.google.dagger:hilt-android:$google_hilt_version"
+    // test
+    kaptTest "com.google.dagger:hilt-android-compiler:$google_hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$google_hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$google_hilt_version"
 
     // Room
-    kapt 'androidx.room:room-compiler:2.3.0'
-    implementation 'androidx.room:room-ktx:2.3.0'
-    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     // Navigation
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
 
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // Work
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 
-    // Gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_version"
 
-    // Hilt
-    kapt 'androidx.hilt:hilt-compiler:1.0.0'
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    implementation 'androidx.hilt:hilt-work:1.0.0'
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-
-    // Lottie
-    implementation 'com.airbnb.android:lottie:3.7.0'
-
-    // WorkManager
-    implementation 'androidx.work:work-runtime-ktx:2.5.0'
-
-    // Lifecycle
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    // Moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
 
     // Test
-    kaptTest 'com.google.dagger:hilt-android-compiler:2.35.1'
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.35.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'com.google.truth:truth:1.1.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.navigation:navigation-testing:2.3.5'
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.35.1'
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "com.google.truth:truth:$truth_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 }

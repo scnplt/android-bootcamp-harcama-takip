@@ -13,8 +13,8 @@ import dev.sertan.android.harcamatakip.data.model.Currency
 import dev.sertan.android.harcamatakip.data.model.ExchangeRate
 import dev.sertan.android.harcamatakip.data.model.Expense
 import dev.sertan.android.harcamatakip.databinding.ItemExpenseBinding
+import dev.sertan.android.harcamatakip.view.HomeFragmentDirections
 import dev.sertan.android.harcamatakip.view.adapter.ExpenseViewHolder.Callback
-import dev.sertan.android.harcamatakip.view.ui.HomeFragmentDirections
 import javax.inject.Inject
 
 class ExpenseAdapter @Inject constructor() :
@@ -22,12 +22,18 @@ class ExpenseAdapter @Inject constructor() :
 
     var exchangeRate: ExchangeRate? = null
         set(value) {
-            if (field != value) field = value.also { notifyDataSetChanged() }
+            if (field != value) {
+                field = value
+                notifyDataSetChanged()
+            }
         }
 
     var currency: Currency? = null
         set(value) {
-            if (field != value) field = value.also { notifyDataSetChanged() }
+            if (field != value) {
+                field = value
+                notifyDataSetChanged()
+            }
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
@@ -44,15 +50,15 @@ class ExpenseAdapter @Inject constructor() :
 class ExpenseViewHolder(private val binding: ItemExpenseBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(expense: Expense, currency: Currency?, exchangeRate: ExchangeRate?) {
+    fun bind(mExpense: Expense, mCurrency: Currency?, mExchangeRate: ExchangeRate?) {
         binding.apply {
-            this.expense = expense
-            this.currency = currency
-            this.exchangeRate = exchangeRate
+            expense = mExpense
+            currency = mCurrency
+            exchangeRate = mExchangeRate
             callback = Callback {
                 val transitionName =
                     root.resources.getString(R.string.transition_expense_detail_card)
-                val action = HomeFragmentDirections.homeToExpenseDetail(expense)
+                val action = HomeFragmentDirections.homeToExpenseDetail(mExpense)
                 val extras = FragmentNavigatorExtras(root to transitionName)
                 root.findNavController().navigate(action, extras)
             }
@@ -65,6 +71,6 @@ class ExpenseViewHolder(private val binding: ItemExpenseBinding) :
 }
 
 private class ExpenseDiffUtilCallback : DiffUtil.ItemCallback<Expense>() {
-    override fun areItemsTheSame(old: Expense, new: Expense) = old.uid == new.uid
-    override fun areContentsTheSame(old: Expense, new: Expense) = old == new
+    override fun areItemsTheSame(old: Expense, new: Expense): Boolean = old.uid == new.uid
+    override fun areContentsTheSame(old: Expense, new: Expense): Boolean = old == new
 }
