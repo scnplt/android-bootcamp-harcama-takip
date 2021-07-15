@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ddf4e4822fb49d08d71d4a43e03e271)](https://app.codacy.com/gh/scnplt/android-bootcamp-harcama-takip?utm_source=github.com&utm_medium=referral&utm_content=scnplt/android-bootcamp-harcama-takip&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/47dc3cca555b43cbb8d8c1a5bfda8eb3)](https://www.codacy.com/gh/scnplt/android-bootcamp-harcama-takip/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=scnplt/android-bootcamp-harcama-takip&amp;utm_campaign=Badge_Grade)
 
 
